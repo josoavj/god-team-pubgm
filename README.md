@@ -1,1 +1,6 @@
-# VONJINIAINA Josoa ESIIA1 N°48
+# VONJINIAINA Josoa
+# MSI 3
+# Test
+# Used languages: 
+  HTML
+  CSS
