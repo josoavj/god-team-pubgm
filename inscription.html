@@ -13,9 +13,10 @@
         <button><a href="mailto: josoavonjiniaina13@gmail.com" title="Envoyer un mail">Mail</a></button>
         <button><a href="tel:0333736036" title="Contacter notre service client">Call</a></button>
     </header>
-<fieldset id="title"><h1>SQUAD ARCN</h1></fieldset>
-</table></p>
-    <p><h2 class="snk">Bienvenue sur notre plateforme</h1></p>
+    <nav>
+        <fieldset id="title"><h1>TEAM ARCN</h1></fieldset>
+</table id="tableau">
+    <p><h2 class="welcome">Bienvenue sur notre plateforme</h1></p>
 <p id="intro">Cette page est dédié à tout ceux qui veulent adhérer au clan ARCN. Chaques membres doivent avoir un compte utilisateur masqué par un Pseudonyme qui nous permettra de les identifiers.
    On vous prie de bien remplir les informations demandées ,elles nous seront utiles en cas d'urgence.Pour plus d'information, veuillez visiter notre page facebook.
 </p>
@@ -25,7 +26,7 @@
            <fieldset class="projet">
                <legend class="legend">Informations personnelles</legend>
                   <h2></h2>  
-               <table class="tableau">
+               <table class="tableau1">
                       <tr>
                           <td><label for="ls_nm">Nom</label></td>
                           <td><input type="text" placeholder="Entrer votre nom" id="ls_nm"/></td>
@@ -45,15 +46,19 @@
                       </tr>
                       <tr>
                           <td><label for="ls_pays">Pays</label></td>
-                          <td><input type="text" placeholder="ex: Madagascar" id="ls_pays"></td>
+                          <td><input type="text" placeholder="Madagascar" id="ls_pays"></td>
                       </tr>
                       <tr>
                           <td><label for="ls_cpt">Adresse</label></td>
-                          <td><input type="text" placeholder="ex: Ville , Code postal"  id="ls_cpt"></td>
+                          <td><input type="text" placeholder="Ville"  id="ls_cpt"></td>
+                      </tr>
+                      <tr>
+                        <td><label for="ls_cps">Code postal</label></td>
+                        <td><input type="number" placeholder="Code postale" id="ls_cps"></td>
                       </tr>
                       <tr>
                         <td><label>Email</label></td>
-                        <td><input type="email" placeholder="ex: genesisross23@gmail.com"></td>
+                        <td><input type="email" placeholder="Votre adresse mail"></td>
                     </tr>
                   </table>
            </fieldset>
@@ -62,19 +67,25 @@
                   <table class="tableau">
                     <tr>
                         <td><label for="ls_pseudo">Pseudonyme</label></td>
-                        <td><input type="text" placeholder="ex: ARCNArmy" id="ls_pseudo"></td>
+                        <td><input type="text" placeholder="pubgm pseudo" id="ls_pseudo"></td>
                     </tr> 
                     <tr>
                         <td><label for="ls_id">ID</label></td>
-                        <td><input type="text" placeholder="ex: 7225209751" size="11" maxlength="10" id="ls_id"></td>
+                        <td><input type="text" placeholder="pubgm ID" size="11" maxlength="10" id="ls_id"></td>
                     </tr>
                     <tr>
                           <td><label for="ls_app">Appareil</label></td>
                           <td>
                               <select id="ls_app">
-                                  <option value="Androïd">Android</option>
-                                  <option value="IOS/MAC">IOS/Mac</option>
-                                  <option value="Windows">Windows</option>
+                                  <optgroup label="Mobile">
+                                    <option value="Android">Android</option>
+                                    <option value="iPhone">iPhone</option>
+                                  </optgroup>
+                                  <optgroup label="Desktop">
+                                    <option value="IOS/MAC">MacBook</option>
+                                    <option value="Windows">Windows</option>
+
+                                  </optgroup>
                               </select>
                           </td>
                       </tr>
@@ -82,9 +93,16 @@
                           <td><label>Niveau</label></td>
                           <td>
                               <select>
-                                  <option value="Novice">Novice</option>
-                                  <option value="Intermediaire">Intermediaire</option>
-                                  <option value="Pro">Professionnel</option>
+                                 <optgroup label="Simple">
+                                   <option value="Novice">Novice</option>
+                                   <option value="Medium">Medium</option>
+                                   <option value="Pro">Pro</option>
+                                 </optgroup>
+                                 <optgroup label="e-sport">
+                                   <option value="Noob">Noob</option>
+                                   <option value="Medium">Medium</option>
+                                   <option value="Pro">Pro Player</option>
+                                 </optgroup>
                               </select>
                           </td>
                           <td>      </td>
@@ -97,6 +115,9 @@
                                   <option value="Platine">Platine</option>
                                   <option value="Diamant">Diamant</option>
                                   <option value="Couronne">Couronne</option>
+                                  <option value="Champion">Champion</option>
+                                  <option value="Maître Champion">Mâitre Champion</option>
+                                  <option value="Dominateur Champion">Dominateur Champion</option>
                                   <option value="Conquérant">Conquérant</option>
                               </select>
                           </td>
@@ -150,13 +171,14 @@
         <button class="bin"><input type="reset" value="Reset"/></button>
         <button class="bin"><input type="submit" value="Save"/></button>
    </form>
-</p>
-<footer>
-    <nav>
+
+    </nav>
+    <footer>
+        <nav>
         <p>
             <h5 id="copyright">Josoa Vonjiniaina</h5>
         </p>
-    </nav>
-</footer>
+        </nav>
+        </footer>
 </body>
 </html>
