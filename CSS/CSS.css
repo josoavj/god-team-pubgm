@@ -10,6 +10,7 @@
   --theme-color: rgb(37, 107, 238);
   --link-color: whitesmoke;
   --text-color: white;
+  --input-text-color: rgba(0, 0, 0, 0.863);
   --background-color: rgb(30, 95, 238);  
 }
 /* Navbar et autres éléments de navigation */
@@ -89,6 +90,21 @@ fieldset{
 .legend{
   font-weight: 700;
   font-size: 15px;
+}
+input{
+  color: var(--input-text-color);
+}
+label{
+  color:var(--input-text-color);
+}
+optgroup{
+  color: var(--input-text-color);
+}
+option{
+  color: var(--input-text-color);
+}
+option value{
+  color: var(--input-text-color); 
 }
 /* Modification des bouttons Enregistrer et Reinitialiser */
 .bin
