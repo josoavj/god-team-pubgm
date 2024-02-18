@@ -14,7 +14,7 @@
     --input-text-color: rgba(0, 0, 0, 0.863);
     --background-color: rgb(30, 95, 238);  
 }
-header{
+header div{
     display: flex;
     position: relative;
     align-items: center;
@@ -31,6 +31,13 @@ header div ul li a{
 header div ul li a:hover{
     color: var(--on-hover-text);
     font-weight: 700;
+}
+header h1{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 body{
     background-color: var(--background-color);
