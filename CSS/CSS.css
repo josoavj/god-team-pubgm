@@ -49,14 +49,17 @@ body{
 #title
 {
      width: auto;
+     display: flex;
      height: fit-content;
+     position: relative;
      justify-content:center;
      align-items: center;
-     text-align: center;
      border: none;
 }
 #title h1{
-  color: var(--text-color);
+  color: var(--text-color);;
+  text-align: center;
+  letter-spacing: 5px;
 }
 .welcome
 {
