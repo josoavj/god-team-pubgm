@@ -37,8 +37,10 @@ header h1{
     position: relative;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 2Opx;
     letter-spacing: 10px;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
 }
 body{
     background-color: var(--background-color);
