@@ -11,7 +11,8 @@
   --link-color: whitesmoke;
   --text-color: white;
   --input-text-color: rgba(0, 0, 0, 0.863);
-  --background-color: rgb(30, 95, 238);  
+  --background-color: rgb(30, 95, 238);
+  --theme-color-background: rgba(5, 168, 197, 0.61);  
 }
 
 /*
@@ -36,13 +37,27 @@ header ul li a{
   color: var(--text-color);
   text-decoration: none;
 }
+
 header ul li a:hover{
   font-weight: 700;
   color: rgb(47, 255, 168);
 }
 /* Pour la partie body */
-body{
-  background-color: var(--background-color);
+body {
+  animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    background-color: var(--background-color);
+  }
+  50% {
+    background-color: var(--theme-color-background);
+  }
+  100% {
+    background-color: var(--background-color);
+  }
+  
 }
 
 /* Style au niveau du formulaire */
@@ -88,31 +103,42 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 17px;
+    margin-bottom: 25px;
 }
-fieldset{
+fieldset {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40 px;
+  margin-top: 40px;
   margin-bottom: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-.legend{
+
+.legend {
   font-weight: 700;
   font-size: 15px;
 }
-input{
+
+input {
   color: var(--input-text-color);
 }
-label{
-  color:var(--input-text-color);
-}
-optgroup{
+
+label {
   color: var(--input-text-color);
 }
-option{
+
+optgroup {
   color: var(--input-text-color);
 }
+
+option {
+  color: var(--input-text-color);
+}
+
 option value{
   color: var(--input-text-color); 
 }

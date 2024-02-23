@@ -12,7 +12,8 @@
     --link-color: whitesmoke;
     --text-color: white;
     --input-text-color: rgba(0, 0, 0, 0.863);
-    --background-color: rgb(30, 95, 238);  
+    --background-color: rgb(30, 95, 238); 
+    --theme-color-background: rgba(5, 168, 197, 0.61); 
 }
 header div{
     display: flex;
@@ -32,6 +33,7 @@ header div ul li a:hover{
     color: var(--on-hover-text);
     font-weight: 700;
 }
+
 header h1{
     display: flex;
     position: relative;
@@ -44,4 +46,17 @@ header h1{
 }
 body{
     background-color: var(--background-color);
+    animation: colorBackground 5s infinite;
+}
+
+@keyframes colorBackground {
+    0% {
+        background-color: var(--background-color);
+    }
+    50% {
+        background-color: var(--theme-color-background);
+    }
+    100% {
+        background-color: var(--background-color);
+    }
 }
