@@ -26,8 +26,7 @@
     --font-size-h1: 3.5rem; /* Ajustez selon le besoin */
     --font-size-h2: 2.5rem;
 
-    /* Nouvelle variable : hauteur de la barre de navigation */
-    --nav-height: 80px; /* Adaptez cette valeur à la hauteur réelle de votre barre de nav */
+    --nav-height: 80px; /* Hauteur de la barre de navigation */
 }
 
 /* --- 3. Réinitialisation CSS (Reset/Normalize) --- */
@@ -44,8 +43,7 @@ body {
     background-color: var(--background-dark);
     overflow-x: hidden;
     animation: colorBackground 10s infinite alternate ease-in-out;
-    /* Ajoutez un padding-top au body pour laisser de l'espace au header fixe */
-    padding-top: var(--nav-height); /* Assurez-vous que le contenu ne soit pas masqué */
+    padding-top: var(--nav-height); /* Pousse le contenu sous le header fixe */
 }
 
 /* --- 4. Animation du fond (body) --- */
@@ -89,26 +87,25 @@ p {
 
 /* --- 7. Header (En-tête du site) --- */
 header {
-    background-color: rgba(0, 0, 0, 0.7); /* Rendu plus opaque pour mieux voir la nav */
+    background-color: rgba(0, 0, 0, 0.7);
     padding: var(--spacing-sm) 0;
-    position: fixed; /* Rend le header fixe en haut de l'écran */
+    position: fixed; /* Rend le header fixe */
     top: 0;
     left: 0;
-    width: 100%; /* S'étend sur toute la largeur */
-    z-index: 2000; /* Valeur plus élevée pour s'assurer qu'il est au-dessus de tout */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Ajoute une légère ombre */
+    width: 100%;
+    z-index: 2000; /* Assure qu'il est au-dessus */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* --- 8. Navigation Principale (`.main-nav`) --- */
 .main-nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; /* Centre verticalement les éléments enfants (logo, ul) */
     padding: 0 var(--spacing-sm);
     max-width: 1200px;
     margin: 0 auto;
-    height: calc(var(--nav-height) - (var(--spacing-sm) * 2)); /* Ajuste la hauteur en fonction du padding du header */
-    /* Pas besoin de positionnement ici car le parent (header) est fixe */
+    height: calc(var(--nav-height) - (var(--spacing-sm) * 2)); /* Ajuste la hauteur */
 }
 
 .main-nav .logo a {
@@ -116,12 +113,19 @@ header {
     font-weight: 700;
     color: var(--secondary-color);
     letter-spacing: 1px;
+    display: flex; /* Utilise Flexbox pour aligner R+P et Rest in Peace */
+    flex-direction: column; /* Empile les éléments verticalement */
+    justify-content: center; /* Centre les éléments dans la colonne */
+    line-height: 1; /* Réduit l'espacement entre les lignes du logo */
 }
 
 .main-nav .logo .team-name-full {
     font-size: var(--font-size-sm);
     font-weight: 400;
     opacity: 0.8;
+    margin-top: 2px; /* Petite marge au-dessus pour séparer de R+P */
+    display: block; /* S'assure qu'il prend sa propre ligne */
+    text-align: left; /* Aligne le texte à gauche (ou 'center' si préféré) */
 }
 
 .main-nav ul {
@@ -176,14 +180,13 @@ header {
 .hero-section {
     position: relative;
     height: 70vh;
-    min-height: 500px; /* Hauteur minimale pour les petits écrans */
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/hero-bg.jpg') no-repeat center center/cover;
-    /* Supprimez le margin-top négatif et padding-top compensatoire ici */
-    /* Ils ne sont plus nécessaires car le body a déjà un padding-top */
+    /* Supprimez tout margin-top négatif ou padding-top ici */
 }
 
 .hero-content {
@@ -333,6 +336,11 @@ main section:nth-of-type(even) {
     text-decoration: none;
 }
 
+/* Style pour les icônes Font Awesome quand elles sont avec du texte */
+.social-links a i {
+    margin-right: 0.5rem; /* Espace entre l'icône et le texte */
+}
+
 /* --- 14. Footer (Pied de page) --- */
 footer {
     background-color: rgba(0, 0, 0, 0.7);
@@ -380,7 +388,7 @@ footer {
     color: var(--text-light);
 }
 
-/* Styles pour les icônes Font Awesome */
+/* Styles pour les icônes Font Awesome dans le footer */
 .footer-social a i {
     font-size: 30px; /* Taille de l'icône */
     color: rgba(255, 255, 255, 0.7); /* Couleur de base */
@@ -475,5 +483,9 @@ footer {
     }
     .match-grid, .player-preview-grid, .news-grid {
         grid-template-columns: 1fr;
+    }
+
+    .main-nav {
+        height: auto;
     }
 }
