@@ -425,6 +425,33 @@ footer {
     border-top: 1px solid var(--border-color);
 }
 
+/* --- Styles pour les messages du formulaire --- */
+.form-message {
+    margin: var(--spacing-lg) auto;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    max-width: 600px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-message.success {
+    background-color: rgba(40, 167, 69, 0.8); /* Vert succès */
+    color: var(--text-light);
+}
+
+.form-message.error {
+    background-color: rgba(220, 53, 69, 0.8); /* Rouge erreur */
+    color: var(--text-light);
+}
+
+.form-message.info {
+    background-color: rgba(23, 162, 184, 0.8); /* Bleu info */
+    color: var(--text-light);
+}
+
+
 /* --- 15. Responsive Design (Media Queries) --- */
 @media (max-width: 768px) {
     .main-nav {
