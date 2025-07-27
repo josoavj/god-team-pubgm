@@ -1,14 +1,14 @@
-# About 
+
+### About 
 
 - A simple HTML, CSS and JS project to create a simple form page
-# Contributor
 
-- josoavj 
+### Contributor
 
-# Language used: 
+- [josoavj](https://github.com/josoavj) 
+
+### Techno: 
 
  - HTML
- - CSS
- - JavaScript
-
-This is my first website, just a little HTML with little style 
+ - CSS  (Pure CSS)
+ - JavaScript (Pure JS)
