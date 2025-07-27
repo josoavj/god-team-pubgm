@@ -25,12 +25,14 @@
     --font-size-xl: 2rem;
     --font-size-h1: 3.5rem; /* Ajustez selon le besoin */
     --font-size-h2: 2.5rem;
+
+    /* Nouvelle variable : hauteur de la barre de navigation */
+    --nav-height: 80px; /* Adaptez cette valeur à la hauteur réelle de votre barre de nav */
 }
 
 /* --- 3. Réinitialisation CSS (Reset/Normalize) --- */
-/* Un reset plus robuste pour assurer la cohérence entre navigateurs */
 *, *::before, *::after {
-    box-sizing: border-box; /* Inclut padding et border dans la taille de l'élément */
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -38,10 +40,12 @@
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: var(--text-light); /* Couleur de texte par défaut */
-    background-color: var(--background-dark); /* Fond sombre principal */
-    overflow-x: hidden; /* Empêche le défilement horizontal indésirable */
-    animation: colorBackground 10s infinite alternate ease-in-out; /* Animation plus douce */
+    color: var(--text-light);
+    background-color: var(--background-dark);
+    overflow-x: hidden;
+    animation: colorBackground 10s infinite alternate ease-in-out;
+    /* Ajoutez un padding-top au body pour laisser de l'espace au header fixe */
+    padding-top: var(--nav-height); /* Assurez-vous que le contenu ne soit pas masqué */
 }
 
 /* --- 4. Animation du fond (body) --- */
@@ -78,38 +82,44 @@ p {
 
 /* --- 6. Styles des Conteneurs (pour centrer le contenu) --- */
 .container {
-    max-width: 1200px; /* Largeur maximale pour le contenu */
-    margin: 0 auto; /* Centre le conteneur horizontalement */
-    padding: var(--spacing-lg) var(--spacing-sm); /* Padding interne */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-sm);
 }
 
 /* --- 7. Header (En-tête du site) --- */
 header {
-    background-color: rgba(0, 0, 0, 0.5); /* Légèrement transparent */
+    background-color: rgba(0, 0, 0, 0.7); /* Rendu plus opaque pour mieux voir la nav */
     padding: var(--spacing-sm) 0;
-    position: relative; /* Pour positionner le contenu à l'intérieur */
-    z-index: 1000; /* Assure que le header est au-dessus du reste */
+    position: fixed; /* Rend le header fixe en haut de l'écran */
+    top: 0;
+    left: 0;
+    width: 100%; /* S'étend sur toute la largeur */
+    z-index: 2000; /* Valeur plus élevée pour s'assurer qu'il est au-dessus de tout */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Ajoute une légère ombre */
 }
 
 /* --- 8. Navigation Principale (`.main-nav`) --- */
 .main-nav {
     display: flex;
-    justify-content: space-between; /* Logo à gauche, liens à droite */
+    justify-content: space-between;
     align-items: center;
-    padding: 0 var(--spacing-sm); /* Padding sur les côtés */
+    padding: 0 var(--spacing-sm);
     max-width: 1200px;
     margin: 0 auto;
+    height: calc(var(--nav-height) - (var(--spacing-sm) * 2)); /* Ajuste la hauteur en fonction du padding du header */
+    /* Pas besoin de positionnement ici car le parent (header) est fixe */
 }
 
 .main-nav .logo a {
     font-size: var(--font-size-lg);
     font-weight: 700;
-    color: var(--secondary-color); /* Couleur du logo */
+    color: var(--secondary-color);
     letter-spacing: 1px;
 }
 
 .main-nav .logo .team-name-full {
-    font-size: var(--font-size-sm); /* Taille plus petite pour le nom complet */
+    font-size: var(--font-size-sm);
     font-weight: 400;
     opacity: 0.8;
 }
@@ -117,7 +127,7 @@ header {
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: var(--spacing-md); /* Espacement entre les éléments de la nav */
+    gap: var(--spacing-md);
 }
 
 .main-nav ul li a {
@@ -129,31 +139,31 @@ header {
 }
 
 .main-nav ul li a:hover,
-.main-nav ul li a.active { /* 'active' pour la page courante */
-    color: var(--background-dark); /* Texte foncé sur fond clair */
+.main-nav ul li a.active {
+    color: var(--background-dark);
     background-color: var(--secondary-color);
     font-weight: 600;
-    text-decoration: none; /* Enlève le soulignement au hover pour les liens de nav */
+    text-decoration: none;
 }
 
 /* --- 9. Boutons d'Appel à l'Action (CTA) --- */
 .cta-button {
     background-color: var(--primary-color);
-    color: var(--text-light) !important; /* !important pour forcer la couleur du texte */
+    color: var(--text-light) !important;
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease;
     border: 2px solid var(--primary-color);
     text-decoration: none;
-    display: inline-block; /* Pour pouvoir appliquer padding et margin */
+    display: inline-block;
 }
 
 .cta-button:hover {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
     color: var(--background-dark) !important;
-    transform: translateY(-2px); /* Petit effet de levage */
+    transform: translateY(-2px);
     text-decoration: none;
 }
 .cta-button.large-button {
@@ -165,14 +175,15 @@ header {
 /* --- 10. Section Héro (Bannière Principale) --- */
 .hero-section {
     position: relative;
-    height: 70vh; /* Hauteur de la bannière */
+    height: 70vh;
+    min-height: 500px; /* Hauteur minimale pour les petits écrans */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/hero-bg.jpg') no-repeat center center/cover; /* Exemple d'image de fond */
-    margin-top: -80px; /* Remonte la section pour qu'elle passe sous le header fixe */
-    padding-top: 80px; /* Compense le margin-top pour le contenu */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/hero-bg.jpg') no-repeat center center/cover;
+    /* Supprimez le margin-top négatif et padding-top compensatoire ici */
+    /* Ils ne sont plus nécessaires car le body a déjà un padding-top */
 }
 
 .hero-content {
@@ -183,16 +194,15 @@ header {
 .hero-content h1 {
     font-size: var(--font-size-h1);
     margin-bottom: var(--spacing-md);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombre pour le texte */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     color: var(--text-light);
-    /* Votre effet de texte évidé */
-    -webkit-text-stroke: 1px var(--text-light); /* Bordure du texte */
-    color: transparent; /* Intérieur transparent */
+    -webkit-text-stroke: 1px var(--text-light);
+    color: transparent;
 }
 
 .hero-content .team-highlight {
-    color: var(--secondary-color); /* Met en évidence le nom de la team */
-    -webkit-text-stroke: none; /* Pas de bordure pour le highlight */
+    color: var(--secondary-color);
+    -webkit-text-stroke: none;
     color: var(--secondary-color);
 }
 
@@ -242,8 +252,8 @@ main section {
     text-align: center;
 }
 
-main section:nth-of-type(even) { /* Pour alterner les couleurs de fond des sections */
-    background-color: rgba(0, 0, 0, 0.2); /* Un fond légèrement plus sombre */
+main section:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* --- 12. Styles spécifiques aux grilles (Matchs, Joueurs, Actualités) --- */
@@ -251,7 +261,7 @@ main section:nth-of-type(even) { /* Pour alterner les couleurs de fond des secti
 .player-preview-grid,
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
 }
@@ -275,9 +285,9 @@ main section:nth-of-type(even) { /* Pour alterner les couleurs de fond des secti
 }
 
 .player-card img {
-    width: 100px; /* Taille de l'avatar */
+    width: 100px;
     height: 100px;
-    border-radius: 50%; /* Image ronde */
+    border-radius: 50%;
     object-fit: cover;
     margin-bottom: var(--spacing-sm);
     border: 3px solid var(--secondary-color);
@@ -300,7 +310,7 @@ main section:nth-of-type(even) { /* Pour alterner les couleurs de fond des secti
     color: var(--primary-color);
 }
 
-/* --- 13. Section d'Appel à l'Action et Liens Sociaux --- */
+/* --- 13. Section d'Appel à l'action et Liens Sociaux --- */
 .social-links {
     margin-top: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
@@ -334,7 +344,7 @@ footer {
 
 .footer-content {
     display: flex;
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur petits écrans */
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
     max-width: 1200px;
@@ -351,13 +361,13 @@ footer {
 
 .footer-links ul {
     list-style: none;
-    margin-bottom: var(--spacing-md); /* Espacement sous la liste */
+    margin-bottom: var(--spacing-md);
 }
 
 .footer-links ul li a {
     color: rgba(255, 255, 255, 0.7);
     padding: 0.2rem 0;
-    display: block; /* Chaque lien prend sa propre ligne */
+    display: block;
 }
 
 .footer-links ul li a:hover {
@@ -370,17 +380,33 @@ footer {
     color: var(--text-light);
 }
 
-.footer-social a img {
-    width: 30px;
-    height: 30px;
+/* Styles pour les icônes Font Awesome */
+.footer-social a i {
+    font-size: 30px; /* Taille de l'icône */
+    color: rgba(255, 255, 255, 0.7); /* Couleur de base */
     margin: 0 var(--spacing-xs);
-    vertical-align: middle; /* Aligne les icônes */
-    transition: transform 0.2s ease;
+    vertical-align: middle;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.footer-social a img:hover {
+.footer-social a i:hover {
+    color: var(--secondary-color); /* Couleur au survol par défaut */
     transform: scale(1.1);
 }
+
+/* Couleurs officielles pour les icônes sociales au survol */
+.footer-social a .fa-discord:hover {
+    color: #5865F2; /* Discord Blue */
+}
+
+.footer-social a .fa-twitter:hover {
+    color: #1DA1F2; /* Twitter Blue */
+}
+
+.footer-social a .fa-youtube:hover {
+    color: #FF0000; /* YouTube Red */
+}
+
 
 .copyright {
     margin-top: var(--spacing-md);
@@ -391,26 +417,28 @@ footer {
 /* --- 15. Responsive Design (Media Queries) --- */
 @media (max-width: 768px) {
     .main-nav {
-        flex-direction: column; /* La nav passe en colonne */
+        flex-direction: column;
         text-align: center;
+        height: auto; /* Permet à la hauteur de s'adapter sur mobile */
+        padding: var(--spacing-sm); /* Ajoute du padding sur mobile */
     }
 
     .main-nav ul {
-        flex-direction: column; /* Les liens de nav passent en colonne */
+        flex-direction: column;
         gap: var(--spacing-xs);
         margin-top: var(--spacing-md);
-        width: 100%; /* Les liens prennent toute la largeur */
+        width: 100%;
     }
 
     .main-nav ul li {
         width: 100%;
     }
     .main-nav ul li a {
-        display: block; /* Rendent les liens cliquables sur toute leur largeur */
+        display: block;
     }
 
     .hero-content h1 {
-        font-size: 2.5rem; /* Réduire la taille du titre sur mobile */
+        font-size: 2.5rem;
     }
     .hero-content p {
         font-size: 1rem;
