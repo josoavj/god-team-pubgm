@@ -1,0 +1,533 @@
+/* --- 1. Importation de la police Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* --- 2. Variables CSS (Couleurs et autres valeurs réutilisables) --- */
+:root {
+    --primary-color: rgb(37, 107, 238); /* Bleu principal pour la team */
+    --secondary-color: rgb(29, 226, 167); /* Vert/Cyan pour le hover ou éléments secondaires */
+    --text-light: whitesmoke; /* Texte clair pour les fonds sombres */
+    --text-dark: rgba(0, 0, 0, 0.863); /* Texte foncé pour les champs d'entrée, etc. */
+    --background-dark: rgb(20, 30, 48); /* Fond sombre principal, plus neutre */
+    --background-gradient-start: rgb(30, 95, 238); /* Début du dégradé pour l'animation */
+    --background-gradient-end: rgba(5, 168, 197, 0.61); /* Fin du dégradé pour l'animation */
+    --card-background: rgba(255, 255, 255, 0.08); /* Fond pour les cartes (joueurs, actualités) */
+    --form-background: rgba(255, 255, 255, 0.05); /* Fond pour le formulaire */
+    --border-color: rgba(255, 255, 255, 0.2); /* Couleur de bordure subtile */
+    --input-border-color: rgba(255, 255, 255, 0.3);
+
+    --spacing-xs: 0.5rem;   /* ~8px */
+    --spacing-sm: 1rem;     /* ~16px */
+    --spacing-md: 1.5rem;   /* ~24px */
+    --spacing-lg: 2.5rem;   /* ~40px */
+    --spacing-xl: 4rem;     /* ~64px */
+
+    --font-size-base: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 2rem;
+    --font-size-h1: 3rem; /* Ajustez selon le besoin */
+    --font-size-h2: 2rem;
+
+    --nav-height: 80px; /* Hauteur de la barre de navigation */
+}
+
+/* --- 3. Réinitialisation CSS (Reset/Normalize) --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--background-dark);
+    overflow-x: hidden;
+    animation: colorBackground 10s infinite alternate ease-in-out;
+    padding-top: var(--nav-height); /* Pousse le contenu sous le header fixe */
+}
+
+/* --- 4. Animation du fond (body) --- */
+@keyframes colorBackground {
+    0% { background-color: var(--background-gradient-start); }
+    50% { background-color: var(--background-gradient-end); }
+    100% { background-color: var(--background-gradient-start); }
+}
+
+/* --- 5. Styles Généraux des Liens et Textes --- */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-light);
+    line-height: 1.2;
+}
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-lg); }
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* --- 6. Styles des Conteneurs (pour centrer le contenu) --- */
+.container {
+    max-width: 900px; /* Largeur réduite pour le formulaire */
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-sm);
+}
+
+/* --- 7. Header (En-tête du site) --- */
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: var(--spacing-sm) 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* --- 8. Navigation Principale (`.main-nav`) --- */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacing-sm);
+    max-width: 1200px; /* La nav reste plus large */
+    margin: 0 auto;
+    height: calc(var(--nav-height) - (var(--spacing-sm) * 2));
+}
+
+.main-nav .logo a {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--secondary-color);
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1;
+}
+
+.main-nav .logo .team-name-full {
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    opacity: 0.8;
+    margin-top: 2px;
+    display: block;
+    text-align: left;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.main-nav ul li a {
+    font-size: var(--font-size-base);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    color: var(--background-dark);
+    background-color: var(--secondary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* --- 9. Styles spécifiques à la section d'introduction du formulaire --- */
+.form-intro-section {
+    text-align: center;
+    padding-top: var(--spacing-xl); /* Plus de padding en haut pour la première section */
+    padding-bottom: var(--spacing-xl);
+}
+
+.form-intro-section .page-title {
+    font-size: var(--font-size-h1);
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.form-intro-section .welcome-message {
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--spacing-md);
+}
+
+.form-intro-section .intro-text {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-sm) auto;
+    opacity: 0.9;
+}
+
+/* --- 10. Styles du formulaire d'inscription --- */
+.registration-form-section {
+    padding-top: 0; /* Pas de padding top, car l'intro section en a déjà */
+    padding-bottom: var(--spacing-xl);
+}
+
+.form-container {
+    background-color: var(--form-background);
+    padding: var(--spacing-xl);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+}
+
+.form-container .form-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--secondary-color);
+    font-size: var(--font-size-xl);
+}
+
+fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+legend {
+    color: var(--primary-color);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    padding: 0 var(--spacing-xs);
+    margin-left: var(--spacing-sm);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    flex-direction: column; /* Labels au-dessus des inputs par défaut */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light); /* Texte tapé en blanc */
+    font-size: var(--font-size-base);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* Couleur du placeholder */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Styles spécifiques pour les radios et checkboxes */
+.radio-group, .checkbox-group {
+    flex-direction: column;
+}
+
+.radio-options, .checkbox-options {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux options de passer à la ligne */
+    gap: var(--spacing-md);
+    margin-top: 0.5rem;
+}
+
+.radio-options input[type="radio"],
+.checkbox-options input[type="checkbox"] {
+    margin-right: 0.5rem;
+    width: auto; /* Annule le width: 100% */
+}
+
+.radio-options label,
+.checkbox-options label {
+    display: inline-block; /* Pour aligner le label avec le radio/checkbox */
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+/* Styles pour les groupes flex (ex: Niveau et Classement, Hôte et Région) */
+.form-group.flex-group {
+    flex-direction: row; /* Aligne les éléments côte à côte */
+    gap: var(--spacing-md);
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur mobile */
+}
+
+.form-group.flex-group > div {
+    flex: 1; /* Chaque div prend une part égale de l'espace */
+    min-width: 200px; /* Largeur minimale avant de passer à la ligne */
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper select {
+    appearance: none; /* Cache la flèche par défaut du select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 2.5rem; /* Espace pour une flèche custom */
+}
+
+/* Flèche custom pour les selects */
+.select-wrapper::after {
+    content: '\f078'; /* Code Unicode pour une flèche Font Awesome (fa-angle-down) */
+    font-family: 'Font Awesome 5 Free'; /* Assurez-vous d'utiliser la bonne famille de police */
+    font-weight: 900; /* Pour les icônes Solid */
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(calc(-50% + 0.25rem)); /* Ajuster la position verticale */
+    color: var(--secondary-color);
+    pointer-events: none; /* Permet de cliquer sur le select à travers la flèche */
+}
+
+
+/* --- 11. Styles des boutons de soumission --- */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    color: var(--text-light);
+}
+
+.btn-reset {
+    background-color: rgba(255, 0, 0, 0.6); /* Rouge pour réinitialiser */
+}
+
+.btn-reset:hover {
+    background-color: rgba(255, 0, 0, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(255, 0, 0, 0.3);
+}
+
+.btn-submit {
+    background-color: var(--primary-color); /* Couleur principale pour soumettre */
+}
+
+.btn-submit:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* --- 12. Footer (Pied de page) --- */
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.7);
+    padding: var(--spacing-lg) 0;
+    font-size: var(--font-size-sm);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.footer-logo p {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-links ul {
+    list-style: none;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-links ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.2rem 0;
+    display: block;
+}
+
+.footer-links ul li a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.footer-social h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-light);
+}
+
+.footer-social a i {
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 var(--spacing-xs);
+    vertical-align: middle;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social a i:hover {
+    color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+.footer-social a .fa-discord:hover { color: #5865F2; }
+.footer-social a .fa-twitter:hover { color: #1DA1F2; }
+.footer-social a .fa-youtube:hover { color: #FF0000; }
+
+.copyright {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Styles pour les messages du formulaire --- */
+.form-message {
+    margin: var(--spacing-lg) auto;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    max-width: 600px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-message.success {
+    background-color: rgba(40, 167, 69, 0.8); /* Vert succès */
+    color: var(--text-light);
+}
+
+.form-message.error {
+    background-color: rgba(220, 53, 69, 0.8); /* Rouge erreur */
+    color: var(--text-light);
+}
+
+.form-message.info {
+    background-color: rgba(23, 162, 184, 0.8); /* Bleu info */
+    color: var(--text-light);
+}
+
+
+/* --- 15. Responsive Design (Media Queries) --- */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: var(--spacing-sm);
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        margin-top: var(--spacing-md);
+        width: 100%;
+    }
+
+    .main-nav ul li {
+        width: 100%;
+    }
+    .main-nav ul li a {
+        display: block;
+    }
+
+    .form-intro-section .page-title {
+        font-size: 2.2rem;
+    }
+    .form-intro-section .welcome-message {
+        font-size: 1.5rem;
+    }
+
+    .form-container {
+        padding: var(--spacing-lg);
+    }
+
+    .form-group.flex-group {
+        flex-direction: column; /* Les éléments flex passent en colonne sur mobile */
+        gap: var(--spacing-sm);
+    }
+
+    .radio-options, .checkbox-options {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .btn {
+        width: 100%; /* Les boutons prennent toute la largeur */
+        margin-bottom: var(--spacing-sm);
+    }
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-logo, .footer-links, .footer-social {
+        margin-bottom: var(--spacing-lg);
+    }
+    .footer-links ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-sm);
+    }
+    .footer-links ul li a {
+        display: inline-block;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: var(--spacing-md);
+    }
+    .form-container .form-title {
+        font-size: 1.5rem;
+    }
+}

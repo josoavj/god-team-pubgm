@@ -1,213 +1,243 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-   <meta charset="UTF-8">
-   <title>GOD - Create account</title>
-   <meta name="viewport" content="width=device=device-width,initial-scale=1.0">
-   <link rel="stylesheet" type="text/CSS" media="all" href="CSS/CSS.css">
-   <link rel="icon" href="Icône/ARCN.ico">
-   <script src="./JS/inscription.js"></script>
-   <script src="./JS/Template.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest in Peace (R+P) - Créer un compte</title>
+
+    <!-- Meta Descriptions pour le SEO et le partage social -->
+    <meta name="description" content="Créez votre compte pour rejoindre la communauté Rest in Peace (R+P) et postuler pour la team PUBG Mobile.">
+    <meta name="keywords" content="inscription, compte, rejoindre team, R+P, PUBG Mobile, e-sport, gaming">
+    <meta name="author" content="Votre Nom ou Nom de la Team">
+
+    <!-- Open Graph Meta Tags pour les partages sur les réseaux sociaux -->
+    <meta property="og:title" content="Inscription - Rest in Peace (R+P) Team">
+    <meta property="og:description" content="Créez votre profil joueur et rejoignez la team R+P sur PUBG Mobile.">
+    <meta property="og:image" content="URL_DE_VOTRE_IMAGE_DE_PREVIEW.jpg"> <!-- Remplacez par une URL d'image représentative -->
+    <meta property="og:url" content="URL_DE_VOTRE_SITE.com/inscription.html"> <!-- Remplacez par l'URL de votre page -->
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="Icone/ARCN.ico" type="image/x-icon">
+
+    <!-- Font Awesome CDN pour les icônes (si vous voulez les utiliser dans le header ou footer) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0xXzdyD72S+j9cQvF3i1E0y3z+nQv/0hJ8W2fK3Jj8/r+s+hQ+j+D+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Lien vers le fichier CSS spécifique à cette page -->
+    <link rel="stylesheet" href="./CSS/inscription.css">
+
 </head>
 <body>
-
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyAqaCu5aaiMVGtn8f7eNtEzlkJLnEKAFHc",
-          authDomain: "pubgm-team-web.firebaseapp.com",
-          projectId: "pubgm-team-web",
-          storageBucket: "pubgm-team-web.appspot.com",
-          messagingSenderId: "564225687482",
-          appId: "1:564225687482:web:41b9e26227b2e3ae49e783"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-      </script>
-    <div id="linkSection">
-        <header>
-            <ul>
-                <li><a href="./home.html" title="Go back to the Homepage">Home</a></li>
-                <li><a href="#" title="See me on facebook">Facebook</a></li>
-                <li><a href="mailto: josoavonjiniaina13@gmail.com" title="Send an email">Mail</a></li>
-                <li><a href="tel: 03300000000" title="Call me">Call</a></li>
-            </ul>
-        </header>
-    </div>
-    <nav>
-        <h1 id="title">GOD TEAM</h1>
-</table id="tableau">
-    <p><h2 class="welcome">Welcome on our platform</h1></p>
-<p id="intro">This page is dedicated to all those who want to join the ARCN Team. Each member <br> must have a user account masked by a pseudonym that will allow us to identify them.
-   <br>We kindly ask you to fill in the requested information, it will be useful to us in case of emergency. <br>For more information, please visit our Facebook page.
-</p>
-<div id="formulaire"> 
-    <form action="#" method="POST">
-        <h3 class="snk">Create an user account</h3>
-           <fieldset >
-               <legend class="legend">Informations personnelles</legend>
-                  <h2></h2>  
-               <table class="tableau1">
-                      <tr>
-                          <td><label for="ls_nm">Name</label></td>
-                          <td><input type="text" placeholder="Enter your name" id="ls_nm"/></td>
-                      </tr>
-                      <tr>
-                          <td><label for="ls_fn">First name</label></td>
-                          <td><input type="text" placeholder="Enter your first name" id="ls_fn"/></td>
-                      </tr>
-                      <tr>
-                          <td><label for="ls_dt">Birthday</label></td>
-                          <td><input type="date" id="ls_dt"/></td>
-                      </tr>
-                      <tr>
-                          <td><label>Gender</label></td>
-                          <td style="padding-right: 2cm; color: rgba(0, 0, 0, 0.815);"><input type="radio" name="gender" value="mal" checked/>Male</td>
-                          <td style="color: rgba(0, 0, 0, 0.815);"><input type="radio" name="gender" value="fem" />Female</td>
-                      </tr>
-                      <tr>
-                          <td><label for="ls_pays">Country</label></td>
-                          <td><input type="text" placeholder="Madagascar" id="ls_pays"></td>
-                      </tr>
-                      <tr>
-                          <td><label for="ls_cpt">City</label></td>
-                          <td><input type="text" placeholder="Your city"  id="ls_cpt"></td>
-                      </tr>
-                      <tr>
-                        <td><label for="ls_cps">Postal code</label></td>
-                        <td><input type="number" placeholder="Your postal code" id="ls_cps"></td>
-                      </tr>
-                      <tr>
-                        <td><label>Email</label></td>
-                        <td><input type="email" placeholder="Your email"></td>
-                    </tr>
-                  </table>
-           </fieldset>
-           <fieldset>
-               <legend class="legend">PUBG Profil</legend>
-                  <table class="tableau">
-                    <tr>
-                        <td><label for="ls_pseudo">Pseudonyme</label></td>
-                        <td><input type="text" placeholder="pubgm pseudo" id="ls_pseudo" required></td>
-                    </tr> 
-                    <tr>
-                        <td><label for="ls_id">ID</label></td>
-                        <td><input type="text" placeholder="pubgm ID" size="11" maxlength="10" id="ls_id" required></td>
-                    </tr>
-                    <tr>
-                          <td><label for="ls_app">Device</label></td>
-                          <td>
-                              <select id="ls_app">
-                                  <optgroup label="Mobile">
-                                    <option value="Android">Android</option>
-                                    <option value="iPhone">iPhone</option>
-                                  </optgroup>
-                                  <optgroup label="Desktop">
-                                    <option value="IOS/MAC">MacBook</option>
-                                    <option value="Windows">Windows</option>
-                                  </optgroup>
-                              </select>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td><label>Level</label></td>
-                          <td>
-                              <select>
-                                 <optgroup label="Simple">
-                                   <option value="Novice">Novice</option>
-                                   <option value="Medium">Medium</option>
-                                   <option value="Pro">Pro</option>
-                                 </optgroup>
-                                 <optgroup label="e-sport">
-                                   <option value="Noob">Noob</option>
-                                   <option value="Medium">Medium</option>
-                                   <option value="Pro">Pro Player</option>
-                                 </optgroup>
-                              </select>
-                          </td>
-                          <td>      </td>
-                          <td><label>Ranking</label></td>
-                          <td>
-                              <select>
-                                  <option value="Bronze">Bronze</option>
-                                  <option value="Argent">Argent</option>
-                                  <option value="Or">Or</option>
-                                  <option value="Platine">Platine</option>
-                                  <option value="Diamant">Diamant</option>
-                                  <option value="Couronne">Couronne</option>
-                                  <option value="Champion">Champion</option>
-                                  <option value="Maître Champion">Maître Champion</option>
-                                  <option value="Dominateur Champion">Dominateur Champion</option>
-                                  <option value="Conquérant">Conquérant</option>
-                              </select>
-                          </td>
-                      </tr>
-                      <tr  >
-                          <td ><label>Speciality</label></td>
-                          <td id="bar"><input type="checkbox" checked>Camper</td>
-                          <td id="bar"><input type="checkbox" >Sniper </td>
-                          <td id="bar"><input type="checkbox" >1V1</td>
-                          <td id="bar"><input type="checkbox">Driver</td>
-                        </tr>
-                        <tr>
-                            <td><label>Host</label></td>
-                            <td>
-                                <select>
-                                    <option value="Europe">Europe</option>
-                                    <option value="North America">North America</option>
-                                    <option value="Asia">Asia</option>
-                                    <option value="Africa">Africa(Beta)</option>
-                                </select>
-                            </td>
-                            <td><Label>Region</Label></td>
-                            <td>
-                                <select>
-                                    <option value="Europe">Europe</option>
-                                    <option value="Africa">Africa</option>
-                                    <option value="Asia">Asia</option>
-                                    <option value="America">America</option>
-                                    <option value="Oceania">Oceania</option>
-                                </select>
-                            </td>
-                        </tr>
-                  </table>
-            </fieldset>
-            <fieldset>
-                <legend class="legend">ARCN USER ACCOUNT</legend>
-                <table class="tableau">
-                    <tr>
-                        <td><label for="ls_usr">Username</label></td>
-                        <td><input type="text" id="ls_usr" maxlength="10" placeholder="godEren"/></td>
-                    </tr>
-                    <tr>
-                        <td><label for="ls_pwd">Password</label></td>
-                        <td><input type="password" placeholder="Enter your password" id="ls_pwd"/></td>
-                    </tr>
-                    <tr>
-                        <td><label for="ls_cpwd">Confirm your password</label></td>
-                        <td><input type="password" placeholder="Re-write your password" id="ls_cpwd"></td>
-                    </tr>
-                </table>
-            </fieldset> 
-            <button class="bin"><input type="reset" value="Reset" id="reset"/></button>
-            <button class="bin"><input type="submit" value="Save" id ="save"/></button>
-           </form>
-</div>
-   
-
+<header>
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="./home.html">R+P <span class="team-name-full">Rest in Peace</span></a>
+        </div>
+        <ul>
+            <li><a href="./home.html" title="Retour à la page d'accueil">Accueil</a></li>
+            <li><a href="https://facebook.com/votrepage" target="_blank" rel="noopener noreferrer" title="Voir notre page Facebook">Facebook</a></li>
+            <li><a href="mailto:josoavonjiniaina13@gmail.com" title="Envoyer un email">Mail</a></li>
+            <li><a href="tel:03300000000" title="Nous appeler">Appeler</a></li>
+        </ul>
     </nav>
-    <footer>
-        <nav>
-        <p>
-            <h5 id="copyright">Josoa Vonjiniaina - @Josoa886</h5>
-        </p>
-        </nav>
-        </footer>
+</header>
+
+<main class="inscription-main">
+    <!-- Conteneur pour les messages du formulaire -->
+    <div id="form-message" class="form-message" style="display: none;"></div>
+
+    <section class="form-intro-section container">
+        <h1 class="page-title">Rest in Peace (R+P) Team</h1>
+        <h2 class="welcome-message">Bienvenue sur notre plateforme d'inscription !</h2>
+        <p class="intro-text">Cette page est dédiée à tous ceux qui souhaitent rejoindre la Team R+P. Chaque membre doit avoir un compte utilisateur masqué par un pseudonyme qui nous permettra de l'identifier.</p>
+        <p class="intro-text">Nous vous prions de bien vouloir remplir les informations demandées, elles nous seront utiles en cas d'urgence. Pour plus d'informations, veuillez visiter notre page Facebook.</p>
+    </section>
+
+    <section class="registration-form-section container">
+        <div class="form-container">
+            <form action="#" method="POST">
+                <h3 class="form-title">Créer un compte utilisateur</h3>
+
+                <fieldset>
+                    <legend class="legend">Informations personnelles</legend>
+                    <div class="form-group">
+                        <label for="full_name">Nom Complet</label>
+                        <input type="text" id="full_name" name="full_name" placeholder="Entrez votre nom complet" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="birth_date">Date de Naissance</label>
+                        <input type="date" id="birth_date" name="birth_date" required>
+                    </div>
+                    <div class="form-group radio-group">
+                        <label>Genre</label>
+                        <div class="radio-options">
+                            <input type="radio" id="gender_male" name="gender" value="male" checked>
+                            <label for="gender_male">Homme</label>
+                            <input type="radio" id="gender_female" name="gender" value="female">
+                            <label for="gender_female">Femme</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Pays</label>
+                        <input type="text" id="country" name="country" placeholder="Madagascar" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">Ville</label>
+                        <input type="text" id="city" name="city" placeholder="Votre ville" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postal_code">Code Postal</label>
+                        <input type="number" id="postal_code" name="postal_code" placeholder="Votre code postal">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Votre email" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend class="legend">Profil PUBG</legend>
+                    <div class="form-group">
+                        <label for="pubgm_pseudo">Pseudonyme PUBG</label>
+                        <input type="text" id="pubgm_pseudo" name="pubgm_pseudo" placeholder="Votre pseudo PUBG" maxlength="20" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pubgm_id">ID PUBG</label>
+                        <input type="text" id="pubgm_id" name="pubgm_id" placeholder="Votre ID PUBG (10 chiffres)" size="11" maxlength="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="device">Appareil</label>
+                        <select id="device" name="device">
+                            <optgroup label="Mobile">
+                                <option value="Android">Android</option>
+                                <option value="iPhone">iPhone</option>
+                            </optgroup>
+                            <optgroup label="Ordinateur">
+                                <option value="IOS/MAC">MacBook</option>
+                                <option value="Windows">Windows</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="form-group flex-group">
+                        <div class="select-wrapper">
+                            <label for="level">Niveau</label>
+                            <select id="level" name="level">
+                                <optgroup label="Simple">
+                                    <option value="Novice">Novice</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Pro">Pro</option>
+                                </optgroup>
+                                <optgroup label="e-sport">
+                                    <option value="Noob">Noob</option>
+                                    <option value="Medium_e">Medium</option>
+                                    <option value="Pro_e">Pro Player</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="select-wrapper">
+                            <label for="ranking">Classement</label>
+                            <select id="ranking" name="ranking">
+                                <option value="Bronze">Bronze</option>
+                                <option value="Argent">Argent</option>
+                                <option value="Or">Or</option>
+                                <option value="Platine">Platine</option>
+                                <option value="Diamant">Diamant</option>
+                                <option value="Couronne">Couronne</option>
+                                <option value="Champion">Champion</option>
+                                <option value="Master Champion">Maître Champion</option>
+                                <option value="Dominator Champion">Dominateur Champion</option>
+                                <option value="Conqueror">Conquérant</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label>Spécialité</label>
+                        <div class="checkbox-options">
+                            <input type="checkbox" id="spec_camper" name="speciality[]" value="Camper" checked>
+                            <label for="spec_camper">Camper</label>
+                            <input type="checkbox" id="spec_sniper" name="speciality[]" value="Sniper">
+                            <label for="spec_sniper">Sniper</label>
+                            <input type="checkbox" id="spec_1v1" name="speciality[]" value="1V1">
+                            <label for="spec_1v1">1V1</label>
+                            <input type="checkbox" id="spec_driver" name="speciality[]" value="Driver">
+                            <label for="spec_driver">Driver</label>
+                        </div>
+                    </div>
+                    <div class="form-group flex-group">
+                        <div class="select-wrapper">
+                            <label for="host">Hôte</label>
+                            <select id="host" name="host">
+                                <option value="Europe">Europe</option>
+                                <option value="North America">Amérique du Nord</option>
+                                <option value="Asia">Asie</option>
+                                <option value="Africa">Afrique (Beta)</option>
+                            </select>
+                        </div>
+                        <div class="select-wrapper">
+                            <label for="region">Région</label>
+                            <select id="region" name="region">
+                                <option value="Europe">Europe</option>
+                                <option value="Africa">Afrique</option>
+                                <option value="Asia">Asie</option>
+                                <option value="America">Amérique</option>
+                                <option value="Oceania">Océanie</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend class="legend">Compte Utilisateur R+P</legend>
+                    <div class="form-group">
+                        <label for="username">Nom d'utilisateur</label>
+                        <input type="text" id="username" name="username" maxlength="10" placeholder="godEren" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_password">Confirmer le mot de passe</label>
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Réécrivez votre mot de passe" required>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-reset">Réinitialiser</button>
+                    <button type="submit" class="btn btn-submit">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <p>R+P</p>
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a href="./about.html">À Propos</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./privacy-policy.html">Politique de Confidentialité</a></li>
+                <li><a href="./terms-of-service.html">Conditions d'Utilisation</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h4>Suivez-nous :</h4>
+            <a href="URL_DISCORD" target="_blank" rel="noopener noreferrer" title="Rejoignez-nous sur Discord"><i class="fab fa-discord"></i></a>
+            <a href="URL_TWITTER" target="_blank" rel="noopener noreferrer" title="Suivez-nous sur Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="URL_YOUTUBE" target="_blank" rel="noopener noreferrer" title="Nos vidéos sur YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2025 Rest in Peace (R+P) Team. Tous droits réservés. Développé par Josoa Vonjiniaina.</p>
+    </div>
+</footer>
+
+
+<script src="./JS/inscription.js" defer></script>
+<script src="./JS/Template.js" defer></script>
 </body>
 </html>
