@@ -1,10 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest in Peace (R+P) - Nos Joueurs</title>
+
+    <!-- Meta Descriptions pour le SEO et le partage social -->
+    <meta name="description" content="Découvrez les membres de la team Rest in Peace (R+P) sur PUBG Mobile. Profils détaillés de nos joueurs stars.">
+    <meta name="keywords" content="joueurs, team, R+P, PUBG Mobile, e-sport, gaming, profils joueurs, roster">
+    <meta name="author" content="Votre Nom ou Nom de la Team">
+
+    <!-- Open Graph Meta Tags pour les partages sur les réseaux sociaux -->
+    <meta property="og:title" content="Nos Joueurs - Rest in Peace (R+P) Team">
+    <meta property="og:description" content="Rencontrez les talents qui composent la force de notre équipe PUBG Mobile.">
+    <meta property="og:image" content="URL_DE_VOTRE_IMAGE_DE_PREVIEW_JOUEURS.jpg"> <!-- Remplacez par une URL d'image représentative pour cette page -->
+    <meta property="og:url" content="URL_DE_VOTRE_SITE.com/players.html"> <!-- Remplacez par l'URL de votre page -->
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="Icone/ARCN.ico" type="image/x-icon">
+
+    <!-- Font Awesome CDN pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0xXzdyD72S+j9cQvF3i1E0y3z+nQv/0hJ8W2fK3Jj8/r+s+hQ+j+D+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Lien vers le fichier CSS commun (home.css pour les styles de base) -->
+    <link rel="stylesheet" href="./CSS/index.css">
+    <!-- Lien vers le fichier CSS spécifique à cette page -->
+    <link rel="stylesheet" href="./CSS/joueur.css">
+
 </head>
 <body>
+<header>
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="./index.html">R+P <span class="team-name-full">Rest in Peace</span></a>
+        </div>
+        <ul>
+            <li><a href="./index.html" title="Accueil de la Team R+P">Accueil</a></li>
+            <li><a href="./players.html" class="active" title="Nos joueurs">Joueurs</a></li> <!-- Ajout de la classe 'active' -->
+            <li><a href="./results.html" title="Nos résultats et tournois">Résultats</a></li>
+            <li><a href="./news.html" title="Dernières actualités de la team">Actualités</a></li>
+            <li><a href="./about.html" title="En savoir plus sur la team">À Propos</a></li>
+            <li><a href="./contact.html" title="Nous contacter">Contact</a></li>
+            <li><a href="https://github.com/Josoa886" target="_blank" rel="noopener noreferrer" title="Visitez mon compte GitHub">GitHub</a></li>
+            <li><a href="./inscription.html" class="cta-button" title="Rejoindre la team ou postuler">Rejoindre la Team</a></li>
+        </ul>
+    </nav>
+</header>
 
+<main>
+    <section class="hero-sub-page">
+        <div class="hero-content">
+            <h1>Rencontrez les Légendes de <span class="team-highlight">R+P</span></h1>
+            <p>Découvrez les profils de nos joueurs, leurs rôles et leurs spécialités sur le champ de bataille de PUBG Mobile.</p>
+        </div>
+    </section>
+
+    <section id="player-profiles" class="container">
+        <h2>Notre Roster Actuel</h2>
+        <div class="player-grid">
+            <!-- Exemple de carte de joueur 1 -->
+            <article class="player-card">
+                <img src="https://placehold.co/200x200/256BEE/FFFFFF?text=Player1" alt="Avatar de Player_IGN_1">
+                <h3>Player_IGN_1</h3>
+                <p class="role">Rôle: IGL (In-Game Leader)</p>
+                <p class="specialties">Spécialités: Stratégie, Appel de Zone, Précision au Sniper</p>
+                <div class="player-stats">
+                    <span><i class="fas fa-trophy"></i> Rang: Conquérant</span>
+                    <span><i class="fas fa-gamepad"></i> Appareil: iPhone</span>
+                </div>
+                <p class="bio">Leader expérimenté, Player_IGN_1 est le cerveau derrière nos tactiques. Sa vision du jeu et sa capacité à prendre des décisions rapides sont inégalées.</p>
+                <a href="#" class="view-profile-btn">Voir le profil complet</a>
+            </article>
+
+            <!-- Exemple de carte de joueur 2 -->
+            <article class="player-card">
+                <img src="https://placehold.co/200x200/1DE2A7/FFFFFF?text=Player2" alt="Avatar de Player_IGN_2">
+                <h3>Player_IGN_2</h3>
+                <p class="role">Rôle: Entry Fragger</p>
+                <p class="specialties">Spécialités: Assaut, Duel 1v1, Agression rapide</p>
+                <div class="player-stats">
+                    <span><i class="fas fa-trophy"></i> Rang: Dominateur Champion</span>
+                    <span><i class="fas fa-gamepad"></i> Appareil: Android</span>
+                </div>
+                <p class="bio">Le premier à engager le combat, Player_IGN_2 est notre force de frappe. Sa maîtrise du CQC (Close Quarters Combat) est redoutable.</p>
+                <a href="#" class="view-profile-btn">Voir le profil complet</a>
+            </article>
+
+            <!-- Exemple de carte de joueur 3 -->
+            <article class="player-card">
+                <img src="https://placehold.co/200x200/256BEE/FFFFFF?text=Player3" alt="Avatar de Player_IGN_3">
+                <h3>Player_IGN_3</h3>
+                <p class="role">Rôle: Support / Flanker</p>
+                <p class="specialties">Spécialités: Soutien, Flanc, Utilisation de grenades</p>
+                <div class="player-stats">
+                    <span><i class="fas fa-trophy"></i> Rang: Couronne</span>
+                    <span><i class="fas fa-gamepad"></i> Appareil: iPhone</span>
+                </div>
+                <p class="bio">Indispensable à l'équipe, Player_IGN_3 assure la couverture et surprend les ennemis par des mouvements inattendus. Son sens du placement est clé.</p>
+                <a href="#" class="view-profile-btn">Voir le profil complet</a>
+            </article>
+
+            <!-- Exemple de carte de joueur 4 -->
+            <article class="player-card">
+                <img src="https://placehold.co/200x200/1DE2A7/FFFFFF?text=Player4" alt="Avatar de Player_IGN_4">
+                <h3>Player_IGN_4</h3>
+                <p class="role">Rôle: Sniper / Recon</p>
+                <p class="specialties">Spécialités: Tir longue distance, Reconnaissance, Informations</p>
+                <div class="player-stats">
+                    <span><i class="fas fa-trophy"></i> Rang: Champion</span>
+                    <span><i class="fas fa-gamepad"></i> Appareil: Windows (Émulateur)</span>
+                </div>
+                <p class="bio">Le tireur d'élite de la team, Player_IGN_4 élimine les menaces à distance et fournit des informations cruciales sur la position des ennemis.</p>
+                <a href="#" class="view-profile-btn">Voir le profil complet</a>
+            </article>
+
+
+
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <p>R+P</p>
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a href="./about.html">À Propos</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./privacy-policy.html">Politique de Confidentialité</a></li>
+                <li><a href="./terms-of-service.html">Conditions d'Utilisation</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h4>Suivez-nous :</h4>
+            <a href="URL_DISCORD" target="_blank" rel="noopener noreferrer" title="Rejoignez-nous sur Discord"><i class="fab fa-discord"></i></a>
+            <a href="URL_TWITTER" target="_blank" rel="noopener noreferrer" title="Suivez-nous sur Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="URL_YOUTUBE" target="_blank" rel="noopener noreferrer" title="Nos vidéos sur YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2025 Rest in Peace (R+P) Team. Tous droits réservés. Développé par josoavj.</p>
+    </div>
+</footer>
+
+<!-- Script JS spécifique à cette page  -->
+<script src="./JS/joueur.js" defer></script>
 </body>
 </html>
