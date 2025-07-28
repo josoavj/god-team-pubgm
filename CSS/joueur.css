@@ -1,0 +1,195 @@
+/* --- Styles spécifiques à la section Hero des sous-pages --- */
+.hero-sub-page {
+    position: relative;
+    height: 40vh;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/players-hero-bg.jpg') no-repeat center center/cover;
+}
+
+.hero-sub-page .hero-content h1 {
+    font-size: var(--font-size-h1);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-light);
+    -webkit-text-stroke: 1px var(--text-light);
+    color: transparent; /* Effet de texte évidé */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-sub-page .hero-content .team-highlight {
+    color: var(--secondary-color);
+    -webkit-text-stroke: none;
+    color: var(--secondary-color);
+}
+
+.hero-sub-page .hero-content p {
+    font-size: var(--font-size-lg);
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- Styles pour la grille des joueurs --- */
+#player-profiles {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+#player-profiles h2 {
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+}
+
+.player-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grille responsive */
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+.player-card {
+    background-color: var(--card-background); /* Utilise la variable du home.css */
+    padding: var(--spacing-md);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-card:hover {
+    transform: translateY(-8px); /* Effet de levage plus prononcé */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+}
+
+.player-card img {
+    width: 150px; /* Taille de l'avatar plus grande */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--spacing-md);
+    border: 4px solid var(--secondary-color); /* Bordure plus épaisse */
+    box-shadow: 0 0 15px rgba(29, 226, 167, 0.5); /* Lueur autour de l'avatar */
+}
+
+.player-card h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-lg);
+}
+
+.player-card .role {
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-base);
+}
+
+.player-card .specialties {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--spacing-md);
+}
+
+.player-card .player-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    width: 100%;
+    flex-wrap: wrap; /* Permet le retour à la ligne sur petits écrans */
+}
+
+.player-card .player-stats span {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.player-card .player-stats span i {
+    color: var(--secondary-color); /* Couleur de l'icône */
+}
+
+.player-card .bio {
+    font-size: var(--font-size-base);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--spacing-lg);
+    flex-grow: 1; /* Permet à la bio de prendre l'espace restant pour aligner les boutons */
+}
+
+.player-card .view-profile-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 2px solid var(--primary-color);
+    text-decoration: none;
+    margin-top: auto; /* Pousse le bouton vers le bas de la carte */
+}
+
+.player-card .view-profile-btn:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--background-dark);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+
+/* --- Media Queries spécifiques à la page joueurs --- */
+@media (max-width: 768px) {
+    .hero-sub-page .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-sub-page .hero-content p {
+        font-size: 1rem;
+    }
+
+    .player-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajustement pour tablettes */
+    }
+
+    .player-card img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-sub-page {
+        height: 30vh;
+        min-height: 250px;
+    }
+    .hero-sub-page .hero-content h1 {
+        font-size: 2rem;
+    }
+    .hero-sub-page .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .player-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+
+    .player-card {
+        padding: var(--spacing-md);
+    }
+    .player-card img {
+        width: 100px;
+        height: 100px;
+    }
+}
