@@ -1,32 +1,34 @@
 /* --- 1. Importation de la police Google Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-/* --- 2. Variables CSS (Couleurs et autres valeurs réutilisables) --- */
+/* --- 2. Variables CSS (Couleurs, espacement et tailles) --- */
 :root {
-    --primary-color: rgb(37, 107, 238); /* Bleu principal pour la team */
-    --secondary-color: rgb(29, 226, 167); /* Vert/Cyan pour le hover ou éléments secondaires */
-    --text-light: whitesmoke; /* Texte clair pour les fonds sombres */
-    --text-dark: rgba(0, 0, 0, 0.863); /* Texte foncé pour les champs d'entrée, etc. */
-    --background-dark: rgb(20, 30, 48); /* Fond sombre principal, plus neutre */
-    --background-gradient-start: rgb(30, 95, 238); /* Début du dégradé pour l'animation */
-    --background-gradient-end: rgba(5, 168, 197, 0.61); /* Fin du dégradé pour l'animation */
+    --primary-color: #256beb; /* Bleu principal (plus lumineux) */
+    --secondary-color: #1de2a7; /* Vert/Cyan pour les interactions (hover, focus) */
+    --text-light: #f5f5f5; /* Texte clair, presque blanc */
+    --text-dark: #121212; /* Texte foncé pour les champs d'entrée, etc. */
+    --background-dark: #10192d; /* Fond bleu nuit */
     --card-background: rgba(255, 255, 255, 0.08); /* Fond pour les cartes (joueurs, actualités) */
     --border-color: rgba(255, 255, 255, 0.2); /* Couleur de bordure subtile */
+    --button-tertiary: rgba(255, 255, 255, 0.15); /* Couleur pour le nouveau bouton */
 
-    --spacing-xs: 0.5rem;   /* ~8px */
-    --spacing-sm: 1rem;     /* ~16px */
-    --spacing-md: 1.5rem;   /* ~24px */
-    --spacing-lg: 2.5rem;   /* ~40px */
-    --spacing-xl: 4rem;     /* ~64px */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 4rem;
 
     --font-size-base: 1rem;
     --font-size-sm: 0.875rem;
     --font-size-lg: 1.25rem;
     --font-size-xl: 2rem;
-    --font-size-h1: 3.5rem; /* Ajustez selon le besoin */
-    --font-size-h2: 2.5rem;
+    --font-size-h1: clamp(2.5rem, 6vw, 3.5rem); /* Taille de police responsive pour H1 */
+    --font-size-h2: clamp(2rem, 4vw, 2.5rem); /* Taille de police responsive pour H2 */
 
     --nav-height: 80px; /* Hauteur de la barre de navigation */
+    --nav-height-scrolled: 60px; /* Hauteur de la barre de navigation au défilement */
+    --border-radius: 10px;
+    --transition-speed: 0.3s;
 }
 
 /* --- 3. Réinitialisation CSS (Reset/Normalize) --- */
@@ -36,28 +38,26 @@
     padding: 0;
 }
 
+/* Style de sélection de texte */
+::selection {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--text-light);
-    background-color: var(--background-dark);
-    overflow-x: hidden;
-    animation: colorBackground 10s infinite alternate ease-in-out;
+    background-color: var(--background-dark); /* Fond bleu nuit statique */
+    overflow-x: hidden; /* Empêche le défilement horizontal */
     padding-top: var(--nav-height); /* Pousse le contenu sous le header fixe */
 }
 
-/* --- 4. Animation du fond (body) --- */
-@keyframes colorBackground {
-    0% { background-color: var(--background-gradient-start); }
-    50% { background-color: var(--background-gradient-end); }
-    100% { background-color: var(--background-gradient-start); }
-}
-
-/* --- 5. Styles Généraux des Liens et Textes --- */
+/* --- 4. Styles Généraux des Liens et Textes --- */
 a {
     color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
 a:hover {
@@ -76,16 +76,17 @@ h3 { font-size: var(--font-size-lg); }
 
 p {
     margin-bottom: var(--spacing-sm);
+    color: var(--text-light); /* Texte principal toujours visible */
 }
 
-/* --- 6. Styles des Conteneurs (pour centrer le contenu) --- */
+/* --- 5. Styles des Conteneurs (pour centrer le contenu) --- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--spacing-lg) var(--spacing-sm);
+    padding: var(--spacing-xl) var(--spacing-sm);
 }
 
-/* --- 7. Header (En-tête du site) --- */
+/* --- 6. Header (En-tête du site) --- */
 header {
     background-color: rgba(0, 0, 0, 0.7);
     padding: var(--spacing-sm) 0;
@@ -95,17 +96,19 @@ header {
     width: 100%;
     z-index: 2000; /* Assure qu'il est au-dessus */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all var(--transition-speed) ease-in-out;
 }
 
-/* --- 8. Navigation Principale (`.main-nav`) --- */
+/* --- 7. Navigation Principale (`.main-nav`) --- */
 .main-nav {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Centre verticalement les éléments enfants (logo, ul) */
+    align-items: center;
     padding: 0 var(--spacing-sm);
     max-width: 1200px;
     margin: 0 auto;
-    height: calc(var(--nav-height) - (var(--spacing-sm) * 2)); /* Ajuste la hauteur */
+    height: var(--nav-height);
+    transition: all var(--transition-speed) ease-in-out;
 }
 
 .main-nav .logo a {
@@ -113,19 +116,21 @@ header {
     font-weight: 700;
     color: var(--secondary-color);
     letter-spacing: 1px;
-    display: flex; /* Utilise Flexbox pour aligner R+P et Rest in Peace */
-    flex-direction: column; /* Empile les éléments verticalement */
-    justify-content: center; /* Centre les éléments dans la colonne */
-    line-height: 1; /* Réduit l'espacement entre les lignes du logo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1;
+    transition: all var(--transition-speed) ease-in-out;
 }
 
 .main-nav .logo .team-name-full {
     font-size: var(--font-size-sm);
     font-weight: 400;
     opacity: 0.8;
-    margin-top: 2px; /* Petite marge au-dessus pour séparer de R+P */
-    display: block; /* S'assure qu'il prend sa propre ligne */
-    text-align: left; /* Aligne le texte à gauche (ou 'center' si préféré) */
+    margin-top: 2px;
+    display: block;
+    text-align: left;
+    transition: all var(--transition-speed) ease-in-out;
 }
 
 .main-nav ul {
@@ -138,8 +143,8 @@ header {
     font-size: var(--font-size-base);
     color: var(--text-light);
     padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
 .main-nav ul li a:hover,
@@ -150,33 +155,61 @@ header {
     text-decoration: none;
 }
 
-/* --- 9. Boutons d'Appel à l'Action (CTA) --- */
-.cta-button {
-    background-color: var(--primary-color);
-    color: var(--text-light) !important;
+/* --- 8. Boutons d'Appel à l'Action (CTA) --- */
+.cta-button, .button-primary, .button-secondary, .button-tertiary {
     padding: 0.75rem 1.5rem;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    border: 2px solid var(--primary-color);
+    transition: all var(--transition-speed) ease;
+    border: 2px solid transparent; /* Bordure par défaut transparente */
     text-decoration: none;
     display: inline-block;
+    margin-top: var(--spacing-sm);
 }
 
-.cta-button:hover {
+.cta-button, .button-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light) !important;
+    border-color: var(--primary-color);
+}
+.cta-button:hover, .button-primary:hover {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
-    color: var(--background-dark) !important;
+    color: var(--text-dark) !important;
     transform: translateY(-2px);
     text-decoration: none;
 }
-.cta-button.large-button {
+
+.button-secondary {
+    background-color: transparent;
+    color: var(--text-light);
+    border-color: var(--text-light);
+}
+.button-secondary:hover {
+    background-color: var(--text-light);
+    color: var(--text-dark);
+    transform: translateY(-2px);
+}
+
+.button-tertiary {
+    background-color: var(--button-tertiary);
+    color: var(--text-light) !important;
+    border-color: var(--button-tertiary);
+}
+.button-tertiary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--text-dark) !important;
+    transform: translateY(-2px);
+}
+
+.large-button {
     font-size: var(--font-size-lg);
     padding: 1rem 2rem;
 }
 
 
-/* --- 10. Section Héro (Bannière Principale) --- */
+/* --- 9. Section Héro (Bannière Principale) --- */
 .hero-section {
     position: relative;
     height: 70vh;
@@ -185,8 +218,7 @@ header {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/hero-bg.jpg') no-repeat center center/cover;
-    /* Supprimez tout margin-top négatif ou padding-top ici */
+    background: linear-gradient(45deg, #10192d, #1a243e); /* Modification ici */
 }
 
 .hero-content {
@@ -198,15 +230,13 @@ header {
     font-size: var(--font-size-h1);
     margin-bottom: var(--spacing-md);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    color: var(--text-light);
-    -webkit-text-stroke: 1px var(--text-light);
     color: transparent;
+    -webkit-text-stroke: 1px var(--text-light);
 }
 
 .hero-content .team-highlight {
     color: var(--secondary-color);
     -webkit-text-stroke: none;
-    color: var(--secondary-color);
 }
 
 .hero-content p {
@@ -215,51 +245,24 @@ header {
     opacity: 0.9;
 }
 
-.hero-content .button-primary,
-.hero-content .button-secondary {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    margin: 0 var(--spacing-sm) var(--spacing-sm) 0;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
 
-.hero-content .button-primary {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    border: 2px solid var(--primary-color);
-}
-.hero-content .button-primary:hover {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
-    color: var(--background-dark);
-    transform: translateY(-2px);
-}
-
-.hero-content .button-secondary {
-    background-color: transparent;
-    color: var(--text-light);
-    border: 2px solid var(--text-light);
-}
-.hero-content .button-secondary:hover {
-    background-color: var(--text-light);
-    color: var(--background-dark);
-    transform: translateY(-2px);
-}
-
-/* --- 11. Styles pour les sections principales de `main` --- */
+/* --- 10. Styles pour les sections principales de `main` --- */
 main section {
     padding: var(--spacing-xl) 0;
     text-align: center;
 }
-
+main section#about-us,
+main section#latest-matches,
+main section#meet-players,
+main section#recent-news,
+main section#call-to-action {
+    padding: var(--spacing-lg) 0; /* Un peu moins de padding que la section générique */
+}
 main section:nth-of-type(even) {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-/* --- 12. Styles spécifiques aux grilles (Matchs, Joueurs, Actualités) --- */
+/* --- 11. Styles spécifiques aux grilles (Matchs, Joueurs, Actualités) --- */
 .match-grid,
 .player-preview-grid,
 .news-grid {
@@ -274,9 +277,9 @@ main section:nth-of-type(even) {
 .news-card {
     background-color: var(--card-background);
     padding: var(--spacing-md);
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
     border: 1px solid var(--border-color);
 }
 
@@ -287,19 +290,27 @@ main section:nth-of-type(even) {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+.player-card {
+    text-align: center;
+}
+
 .player-card img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: var(--spacing-sm);
     border: 3px solid var(--secondary-color);
 }
 
-.news-card .news-date {
+.match-description, .news-date {
     font-size: var(--font-size-sm);
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-light); /* Visibilité améliorée */
+    opacity: 0.8; /* Légèrement moins opaque */
     margin-bottom: var(--spacing-sm);
+}
+
+.news-card .news-date {
     display: block;
 }
 
@@ -313,21 +324,24 @@ main section:nth-of-type(even) {
     color: var(--primary-color);
 }
 
-/* --- 13. Section d'Appel à l'action et Liens Sociaux --- */
+/* --- 12. Section d'Appel à l'action et Liens Sociaux --- */
 .social-links {
     margin-top: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
 }
 
 .social-links a {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--text-light);
     padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    margin: 0 var(--spacing-xs);
+    border-radius: var(--border-radius);
     font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color var(--transition-speed) ease, transform 0.2s ease;
 }
 
 .social-links a:hover {
@@ -336,15 +350,15 @@ main section:nth-of-type(even) {
     text-decoration: none;
 }
 
-/* Style pour les icônes Font Awesome quand elles sont avec du texte */
 .social-links a i {
-    margin-right: 0.5rem; /* Espace entre l'icône et le texte */
+    margin-right: 0.5rem;
 }
 
-/* --- 14. Footer (Pied de page) --- */
+/* --- 13. Footer (Pied de page) --- */
 footer {
     background-color: rgba(0, 0, 0, 0.7);
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-light); /* Amélioration de la visibilité */
+    opacity: 0.8;
     padding: var(--spacing-lg) 0;
     font-size: var(--font-size-sm);
     text-align: center;
@@ -358,12 +372,25 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-sm);
+    gap: var(--spacing-lg);
 }
 
+.footer-logo {
+    text-align: left;
+}
 .footer-logo p {
     font-size: var(--font-size-lg);
     font-weight: 700;
     color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-links {
+    text-align: left;
+}
+
+.footer-links h4, .footer-social h4 {
+    color: var(--text-light);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -373,7 +400,8 @@ footer {
 }
 
 .footer-links ul li a {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-light); /* Amélioration de la visibilité */
+    opacity: 0.8;
     padding: 0.2rem 0;
     display: block;
 }
@@ -381,77 +409,75 @@ footer {
 .footer-links ul li a:hover {
     color: var(--secondary-color);
     text-decoration: underline;
+    opacity: 1;
 }
 
-.footer-social h4 {
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-light);
+.footer-social {
+    text-align: left;
 }
 
-/* Styles pour les icônes Font Awesome dans le footer */
 .footer-social a i {
-    font-size: 30px; /* Taille de l'icône */
-    color: rgba(255, 255, 255, 0.7); /* Couleur de base */
+    font-size: 30px;
+    color: var(--text-light);
+    opacity: 0.8;
     margin: 0 var(--spacing-xs);
     vertical-align: middle;
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .footer-social a i:hover {
-    color: var(--secondary-color); /* Couleur au survol par défaut */
+    color: var(--secondary-color);
     transform: scale(1.1);
+    opacity: 1;
 }
 
-/* Couleurs officielles pour les icônes sociales au survol */
-.footer-social a .fa-discord:hover {
-    color: #5865F2; /* Discord Blue */
-}
+.footer-social a .fa-discord:hover { color: #5865F2; }
+.footer-social a .fa-twitter:hover { color: #1DA1F2; }
+.footer-social a .fa-youtube:hover { color: #FF0000; }
 
-.footer-social a .fa-twitter:hover {
-    color: #1DA1F2; /* Twitter Blue */
-}
-
-.footer-social a .fa-youtube:hover {
-    color: #FF0000; /* YouTube Red */
-}
-
-
-.copyright {
-    margin-top: var(--spacing-md);
-    padding-top: var(--spacing-sm);
-    border-top: 1px solid var(--border-color);
-}
-
-/* --- 15. Responsive Design (Media Queries) --- */
+/* --- 14. Responsive Design (Media Queries) --- */
+/* Le design est entièrement responsive et s'adapte à toutes les tailles d'écran (mobile, tablette, bureau) */
 @media (max-width: 768px) {
     .main-nav {
         flex-direction: column;
         text-align: center;
-        height: auto; /* Permet à la hauteur de s'adapter sur mobile */
-        padding: var(--spacing-sm); /* Ajoute du padding sur mobile */
+        height: auto;
+        padding: var(--spacing-sm);
     }
-
     .main-nav ul {
         flex-direction: column;
         gap: var(--spacing-xs);
         margin-top: var(--spacing-md);
         width: 100%;
     }
-
     .main-nav ul li {
         width: 100%;
     }
     .main-nav ul li a {
         display: block;
     }
-
+    .main-nav .logo {
+        margin-bottom: var(--spacing-md);
+    }
+    .main-nav .logo a {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .main-nav .logo .team-name-full {
+        margin-top: 0;
+        font-size: var(--font-size-base);
+        text-align: left;
+    }
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: var(--font-size-h2);
     }
     .hero-content p {
-        font-size: 1rem;
+        font-size: var(--font-size-base);
     }
-
+    .button-primary, .button-secondary {
+        margin-bottom: var(--spacing-sm);
+    }
     .footer-content {
         flex-direction: column;
         align-items: center;
@@ -469,11 +495,14 @@ footer {
     .footer-links ul li a {
         display: inline-block;
     }
+    .social-links {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
 }
-
 @media (max-width: 480px) {
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: var(--font-size-xl);
     }
     .hero-content .button-primary,
     .hero-content .button-secondary {
@@ -484,69 +513,55 @@ footer {
     .match-grid, .player-preview-grid, .news-grid {
         grid-template-columns: 1fr;
     }
-
-    .main-nav {
-        height: auto;
-    }
 }
 
-/* --- Styles pour les animations JavaScript --- */
+/* --- 15. Styles pour les animations JavaScript --- */
 
 /* 1. Styles pour la barre de navigation rétrécie au défilement */
 .main-nav.scrolled {
-    padding: 0.5rem var(--spacing-sm); /* Moins de padding */
-    background-color: rgba(0, 0, 0, 0.95); /* Plus opaque */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre plus prononcée */
-    height: 60px; /* Hauteur réduite */
+    padding: 0.5rem var(--spacing-sm);
+    background-color: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    height: var(--nav-height-scrolled);
 }
 
-/* Ajustement pour les éléments internes de la nav si elle rétrécit (facultatif) */
 .main-nav.scrolled .logo a {
-    font-size: var(--font-size-base); /* Logo plus petit */
+    font-size: var(--font-size-base);
 }
 .main-nav.scrolled .logo .team-name-full {
-    font-size: var(--font-size-sm); /* Nom complet plus petit */
-    margin-top: 0; /* Pas de marge additionnelle */
+    font-size: var(--font-size-sm);
+    margin-top: 0;
 }
 .main-nav.scrolled ul li a {
-    padding: 0.3rem 0.8rem; /* Moins de padding pour les liens */
-    font-size: var(--font-size-sm); /* Taille de police plus petite */
-}
-.main-nav.scrolled .cta-button {
-    padding: 0.5rem 1rem; /* Moins de padding pour le bouton CTA */
+    padding: 0.3rem 0.8rem;
     font-size: var(--font-size-sm);
 }
-
-/* Ajoutez une transition douce pour tous les changements de la nav */
-.main-nav,
-.main-nav .logo a,
-.main-nav .logo .team-name-full,
-.main-nav ul li a,
-.main-nav .cta-button {
-    transition: all 0.3s ease-in-out;
+.main-nav.scrolled .cta-button {
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-sm);
 }
 
 
 /* 2. Styles pour le bouton "Retour en haut" */
 #scroll-to-top {
-    display: none; /* Caché par défaut */
+    display: none;
     position: fixed;
     bottom: var(--spacing-lg);
     right: var(--spacing-lg);
     background-color: var(--primary-color);
     color: var(--text-light);
     border: none;
-    border-radius: 50%; /* Rond */
+    border-radius: 50%;
     width: 50px;
     height: 50px;
     font-size: 1.5rem;
-    line-height: 50px; /* Centrer le texte/icône */
+    line-height: 50px;
     text-align: center;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    transition: background-color var(--transition-speed) ease, opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
     z-index: 1000;
-    opacity: 0; /* Caché par défaut pour l'animation */
+    opacity: 0;
 }
 
 #scroll-to-top:hover {
@@ -555,18 +570,18 @@ footer {
 }
 #scroll-to-top.show {
     display: block;
-    opacity: 1; /* Apparaît */
+    opacity: 1;
 }
 
 
 /* 3. Styles pour les animations d'apparition des sections (Fade-in) */
 .animated-section {
     opacity: 0;
-    transform: translateY(20px); /* Légèrement décalé vers le bas */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transition douce */
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .animated-section.is-visible {
     opacity: 1;
-    transform: translateY(0); /* Retour à sa position normale */
+    transform: translateY(0);
 }
