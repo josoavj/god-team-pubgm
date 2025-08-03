@@ -8,8 +8,6 @@
     --text-light: whitesmoke; /* Texte clair pour les fonds sombres */
     --text-dark: rgba(0, 0, 0, 0.863); /* Texte foncé pour les champs d'entrée, etc. */
     --background-dark: rgb(20, 30, 48); /* Fond sombre principal, plus neutre */
-    --background-gradient-start: rgb(30, 95, 238); /* Début du dégradé pour l'animation */
-    --background-gradient-end: rgba(5, 168, 197, 0.61); /* Fin du dégradé pour l'animation */
     --card-background: rgba(255, 255, 255, 0.08); /* Fond pour les cartes (joueurs, actualités) */
     --form-background: rgba(255, 255, 255, 0.05); /* Fond pour le formulaire */
     --border-color: rgba(255, 255, 255, 0.2); /* Couleur de bordure subtile */
@@ -42,20 +40,12 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--text-light);
-    background-color: var(--background-dark);
+    background-color: var(--background-dark); /* Couleur de fond statique */
     overflow-x: hidden;
-    animation: colorBackground 10s infinite alternate ease-in-out;
     padding-top: var(--nav-height); /* Pousse le contenu sous le header fixe */
 }
 
-/* --- 4. Animation du fond (body) --- */
-@keyframes colorBackground {
-    0% { background-color: var(--background-gradient-start); }
-    50% { background-color: var(--background-gradient-end); }
-    100% { background-color: var(--background-gradient-start); }
-}
-
-/* --- 5. Styles Généraux des Liens et Textes --- */
+/* --- 4. Styles Généraux des Liens et Textes --- */
 a {
     color: var(--primary-color);
     text-decoration: none;
@@ -80,14 +70,14 @@ p {
     margin-bottom: var(--spacing-sm);
 }
 
-/* --- 6. Styles des Conteneurs (pour centrer le contenu) --- */
+/* --- 5. Styles des Conteneurs (pour centrer le contenu) --- */
 .container {
     max-width: 900px; /* Largeur réduite pour le formulaire */
     margin: 0 auto;
     padding: var(--spacing-lg) var(--spacing-sm);
 }
 
-/* --- 7. Header (En-tête du site) --- */
+/* --- 6. Header (En-tête du site) --- */
 header {
     background-color: rgba(0, 0, 0, 0.7);
     padding: var(--spacing-sm) 0;
@@ -99,7 +89,7 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* --- 8. Navigation Principale (`.main-nav`) --- */
+/* --- 7. Navigation Principale (`.main-nav`) --- */
 .main-nav {
     display: flex;
     justify-content: space-between;
@@ -152,7 +142,7 @@ header {
     text-decoration: none;
 }
 
-/* --- 9. Styles spécifiques à la section d'introduction du formulaire --- */
+/* --- 8. Styles spécifiques à la section d'introduction du formulaire --- */
 .form-intro-section {
     text-align: center;
     padding-top: var(--spacing-xl); /* Plus de padding en haut pour la première section */
@@ -177,9 +167,9 @@ header {
     opacity: 0.9;
 }
 
-/* --- 10. Styles du formulaire d'inscription --- */
+/* --- 9. Styles du formulaire d'inscription --- */
 .registration-form-section {
-    padding-top: 0; /* Pas de padding top, car l'intro section en a déjà */
+    padding-top: 0;
     padding-bottom: var(--spacing-xl);
 }
 
@@ -316,7 +306,7 @@ legend {
 }
 
 
-/* --- 11. Styles des boutons de soumission --- */
+/* --- 10. Styles des boutons de soumission --- */
 .form-actions {
     display: flex;
     justify-content: center;
@@ -336,7 +326,7 @@ legend {
 }
 
 .btn-reset {
-    background-color: rgba(255, 0, 0, 0.6); /* Rouge pour réinitialiser */
+    background-color: rgba(255, 0, 0, 0.6);
 }
 
 .btn-reset:hover {
@@ -346,7 +336,7 @@ legend {
 }
 
 .btn-submit {
-    background-color: var(--primary-color); /* Couleur principale pour soumettre */
+    background-color: var(--primary-color);
 }
 
 .btn-submit:hover {
@@ -355,7 +345,7 @@ legend {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* --- 12. Footer (Pied de page) --- */
+/* --- 11. Footer (Pied de page) --- */
 footer {
     background-color: rgba(0, 0, 0, 0.7);
     color: rgba(255, 255, 255, 0.7);
@@ -451,8 +441,7 @@ footer {
     color: var(--text-light);
 }
 
-
-/* --- 15. Responsive Design (Media Queries) --- */
+/* --- 12. Responsive Design (Media Queries) --- */
 @media (max-width: 768px) {
     .main-nav {
         flex-direction: column;
@@ -487,7 +476,7 @@ footer {
     }
 
     .form-group.flex-group {
-        flex-direction: column; /* Les éléments flex passent en colonne sur mobile */
+        flex-direction: column;
         gap: var(--spacing-sm);
     }
 
@@ -497,7 +486,7 @@ footer {
     }
 
     .btn {
-        width: 100%; /* Les boutons prennent toute la largeur */
+        width: 100%;
         margin-bottom: var(--spacing-sm);
     }
     .form-actions {
