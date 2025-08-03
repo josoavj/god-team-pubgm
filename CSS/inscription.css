@@ -1,32 +1,36 @@
 /* --- 1. Importation de la police Google Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-/* --- 2. Variables CSS (Couleurs et autres valeurs réutilisables) --- */
+/* --- 2. Variables CSS (Couleurs, espacement et tailles) --- */
 :root {
-    --primary-color: rgb(37, 107, 238); /* Bleu principal pour la team */
-    --secondary-color: rgb(29, 226, 167); /* Vert/Cyan pour le hover ou éléments secondaires */
-    --text-light: whitesmoke; /* Texte clair pour les fonds sombres */
-    --text-dark: rgba(0, 0, 0, 0.863); /* Texte foncé pour les champs d'entrée, etc. */
-    --background-dark: rgb(20, 30, 48); /* Fond sombre principal, plus neutre */
+    --primary-color: #256beb; /* Bleu principal (plus lumineux) */
+    --secondary-color: #1de2a7; /* Vert/Cyan pour les interactions (hover, focus) */
+    --text-light: #f5f5f5; /* Texte clair, presque blanc */
+    --text-dark: #121212; /* Texte foncé pour les champs d'entrée, etc. */
+    --background-dark: #10192d; /* Fond bleu nuit */
     --card-background: rgba(255, 255, 255, 0.08); /* Fond pour les cartes (joueurs, actualités) */
-    --form-background: rgba(255, 255, 255, 0.05); /* Fond pour le formulaire */
     --border-color: rgba(255, 255, 255, 0.2); /* Couleur de bordure subtile */
+    --button-tertiary: rgba(255, 255, 255, 0.15); /* Couleur pour le nouveau bouton */
+    --form-background: rgba(255, 255, 255, 0.05); /* Fond pour le formulaire */
     --input-border-color: rgba(255, 255, 255, 0.3);
 
-    --spacing-xs: 0.5rem;   /* ~8px */
-    --spacing-sm: 1rem;     /* ~16px */
-    --spacing-md: 1.5rem;   /* ~24px */
-    --spacing-lg: 2.5rem;   /* ~40px */
-    --spacing-xl: 4rem;     /* ~64px */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 4rem;
 
     --font-size-base: 1rem;
     --font-size-sm: 0.875rem;
     --font-size-lg: 1.25rem;
     --font-size-xl: 2rem;
-    --font-size-h1: 3rem; /* Ajustez selon le besoin */
-    --font-size-h2: 2rem;
+    --font-size-h1: clamp(2.5rem, 6vw, 3.5rem);
+    --font-size-h2: clamp(2rem, 4vw, 2.5rem);
 
     --nav-height: 80px; /* Hauteur de la barre de navigation */
+    --nav-height-scrolled: 60px; /* Hauteur de la barre de navigation au défilement */
+    --border-radius: 10px;
+    --transition-speed: 0.3s;
 }
 
 /* --- 3. Réinitialisation CSS (Reset/Normalize) --- */
@@ -36,20 +40,25 @@
     padding: 0;
 }
 
+::selection {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--text-light);
-    background-color: var(--background-dark); /* Couleur de fond statique */
+    background-color: var(--background-dark);
     overflow-x: hidden;
-    padding-top: var(--nav-height); /* Pousse le contenu sous le header fixe */
+    padding-top: var(--nav-height);
 }
 
 /* --- 4. Styles Généraux des Liens et Textes --- */
 a {
     color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
 a:hover {
@@ -68,13 +77,14 @@ h3 { font-size: var(--font-size-lg); }
 
 p {
     margin-bottom: var(--spacing-sm);
+    color: var(--text-light);
 }
 
 /* --- 5. Styles des Conteneurs (pour centrer le contenu) --- */
 .container {
-    max-width: 900px; /* Largeur réduite pour le formulaire */
+    max-width: 1200px;
     margin: 0 auto;
-    padding: var(--spacing-lg) var(--spacing-sm);
+    padding: var(--spacing-xl) var(--spacing-sm);
 }
 
 /* --- 6. Header (En-tête du site) --- */
@@ -87,6 +97,7 @@ header {
     width: 100%;
     z-index: 2000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all var(--transition-speed) ease-in-out;
 }
 
 /* --- 7. Navigation Principale (`.main-nav`) --- */
@@ -95,9 +106,10 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 var(--spacing-sm);
-    max-width: 1200px; /* La nav reste plus large */
+    max-width: 1200px;
     margin: 0 auto;
-    height: calc(var(--nav-height) - (var(--spacing-sm) * 2));
+    height: var(--nav-height);
+    transition: all var(--transition-speed) ease-in-out;
 }
 
 .main-nav .logo a {
@@ -109,6 +121,7 @@ header {
     flex-direction: column;
     justify-content: center;
     line-height: 1;
+    transition: all var(--transition-speed) ease-in-out;
 }
 
 .main-nav .logo .team-name-full {
@@ -118,6 +131,7 @@ header {
     margin-top: 2px;
     display: block;
     text-align: left;
+    transition: all var(--transition-speed) ease-in-out;
 }
 
 .main-nav ul {
@@ -130,8 +144,8 @@ header {
     font-size: var(--font-size-base);
     color: var(--text-light);
     padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
 .main-nav ul li a:hover,
@@ -142,11 +156,292 @@ header {
     text-decoration: none;
 }
 
-/* --- 8. Styles spécifiques à la section d'introduction du formulaire --- */
-.form-intro-section {
+/* --- 8. Boutons d'Appel à l'Action (CTA) --- */
+.cta-button, .button-primary, .button-secondary, .button-tertiary {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
+    border: 2px solid transparent;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+}
+
+.cta-button, .button-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light) !important;
+    border-color: var(--primary-color);
+}
+.cta-button:hover, .button-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--text-dark) !important;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: var(--text-light);
+    border-color: var(--text-light);
+}
+.button-secondary:hover {
+    background-color: var(--text-light);
+    color: var(--text-dark);
+    transform: translateY(-2px);
+}
+
+.button-tertiary {
+    background-color: var(--button-tertiary);
+    color: var(--text-light) !important;
+    border-color: var(--button-tertiary);
+}
+.button-tertiary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--text-dark) !important;
+    transform: translateY(-2px);
+}
+
+.large-button {
+    font-size: var(--font-size-lg);
+    padding: 1rem 2rem;
+}
+
+
+/* --- 9. Section Héro (Bannière Principale) --- */
+.hero-section {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding-top: var(--spacing-xl); /* Plus de padding en haut pour la première section */
+    background: linear-gradient(45deg, #10192d, #1a243e);
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: var(--spacing-sm);
+}
+
+.hero-content h1 {
+    font-size: var(--font-size-h1);
+    margin-bottom: var(--spacing-md);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-light);
+}
+
+.hero-content .team-highlight {
+    color: var(--secondary-color);
+    -webkit-text-stroke: none;
+}
+
+.hero-content p {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+}
+
+
+/* --- 10. Styles pour les sections principales de `main` --- */
+main section {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+main section#about-us,
+main section#latest-matches,
+main section#meet-players,
+main section#recent-news,
+main section#call-to-action {
+    padding: var(--spacing-lg) 0;
+}
+main section:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* --- 11. Styles spécifiques aux grilles (Matchs, Joueurs, Actualités) --- */
+.match-grid,
+.player-preview-grid,
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.match-card,
+.player-card,
+.news-card {
+    background-color: var(--card-background);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-align: left;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--border-color);
+}
+
+.match-card:hover,
+.player-card:hover,
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.player-card {
+    text-align: center;
+}
+
+.player-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--spacing-sm);
+    border: 3px solid var(--secondary-color);
+}
+
+.match-description, .news-date {
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    opacity: 0.8;
+    margin-bottom: var(--spacing-sm);
+}
+
+.news-card .news-date {
+    display: block;
+}
+
+.link-more {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+.link-more:hover {
+    color: var(--primary-color);
+}
+
+/* --- 12. Section d'Appel à l'action et Liens Sociaux --- */
+.social-links {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: background-color var(--transition-speed) ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.social-links a i {
+    margin-right: 0.5rem;
+}
+
+/* --- 13. Footer (Pied de page) --- */
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--text-light);
+    opacity: 0.8;
+    padding: var(--spacing-lg) 0;
+    font-size: var(--font-size-sm);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+    gap: var(--spacing-lg);
+}
+
+.footer-logo {
+    text-align: left;
+}
+.footer-logo p {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-links {
+    text-align: left;
+}
+
+.footer-links h4, .footer-social h4 {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-links ul {
+    list-style: none;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-links ul li a {
+    color: var(--text-light);
+    opacity: 0.8;
+    padding: 0.2rem 0;
+    display: block;
+}
+
+.footer-links ul li a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+    opacity: 1;
+}
+
+.footer-social {
+    text-align: left;
+}
+
+.footer-social a i {
+    font-size: 30px;
+    color: var(--text-light);
+    opacity: 0.8;
+    margin: 0 var(--spacing-xs);
+    vertical-align: middle;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social a i:hover {
+    color: var(--secondary-color);
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.footer-social a .fa-discord:hover { color: #5865F2; }
+.footer-social a .fa-twitter:hover { color: #1DA1F2; }
+.footer-social a .fa-youtube:hover { color: #FF0000; }
+
+/* Styles spécifiques pour le formulaire */
+.form-intro-section {
+    padding-top: var(--spacing-xl);
     padding-bottom: var(--spacing-xl);
+    text-align: center;
+    background: linear-gradient(45deg, #10192d, #1a243e);
 }
 
 .form-intro-section .page-title {
@@ -167,7 +462,6 @@ header {
     opacity: 0.9;
 }
 
-/* --- 9. Styles du formulaire d'inscription --- */
 .registration-form-section {
     padding-top: 0;
     padding-bottom: var(--spacing-xl);
@@ -179,6 +473,8 @@ header {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .form-container .form-title {
@@ -206,7 +502,7 @@ legend {
 .form-group {
     margin-bottom: var(--spacing-md);
     display: flex;
-    flex-direction: column; /* Labels au-dessus des inputs par défaut */
+    flex-direction: column;
 }
 
 .form-group label {
@@ -227,13 +523,13 @@ legend {
     border: 1px solid var(--input-border-color);
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-light); /* Texte tapé en blanc */
+    color: var(--text-light);
     font-size: var(--font-size-base);
     transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .form-group input::placeholder {
-    color: rgba(255, 255, 255, 0.6); /* Couleur du placeholder */
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .form-group input:focus,
@@ -243,14 +539,13 @@ legend {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Styles spécifiques pour les radios et checkboxes */
 .radio-group, .checkbox-group {
     flex-direction: column;
 }
 
 .radio-options, .checkbox-options {
     display: flex;
-    flex-wrap: wrap; /* Permet aux options de passer à la ligne */
+    flex-wrap: wrap;
     gap: var(--spacing-md);
     margin-top: 0.5rem;
 }
@@ -258,27 +553,26 @@ legend {
 .radio-options input[type="radio"],
 .checkbox-options input[type="checkbox"] {
     margin-right: 0.5rem;
-    width: auto; /* Annule le width: 100% */
+    width: auto;
 }
 
 .radio-options label,
 .checkbox-options label {
-    display: inline-block; /* Pour aligner le label avec le radio/checkbox */
+    display: inline-block;
     margin-bottom: 0;
     color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
 }
 
-/* Styles pour les groupes flex (ex: Niveau et Classement, Hôte et Région) */
 .form-group.flex-group {
-    flex-direction: row; /* Aligne les éléments côte à côte */
+    flex-direction: row;
     gap: var(--spacing-md);
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur mobile */
+    flex-wrap: wrap;
 }
 
 .form-group.flex-group > div {
-    flex: 1; /* Chaque div prend une part égale de l'espace */
-    min-width: 200px; /* Largeur minimale avant de passer à la ligne */
+    flex: 1;
+    min-width: 200px;
 }
 
 .select-wrapper {
@@ -286,33 +580,36 @@ legend {
 }
 
 .select-wrapper select {
-    appearance: none; /* Cache la flèche par défaut du select */
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    padding-right: 2.5rem; /* Espace pour une flèche custom */
+    padding-right: 2.5rem;
 }
 
-/* Flèche custom pour les selects */
 .select-wrapper::after {
-    content: '\f078'; /* Code Unicode pour une flèche Font Awesome (fa-angle-down) */
-    font-family: 'Font Awesome 5 Free'; /* Assurez-vous d'utiliser la bonne famille de police */
-    font-weight: 900; /* Pour les icônes Solid */
+    content: '\f078';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     position: absolute;
     right: 1rem;
     top: 50%;
-    transform: translateY(calc(-50% + 0.25rem)); /* Ajuster la position verticale */
+    transform: translateY(calc(-50% + 0.25rem));
     color: var(--secondary-color);
-    pointer-events: none; /* Permet de cliquer sur le select à travers la flèche */
+    pointer-events: none;
 }
 
-
-/* --- 10. Styles des boutons de soumission --- */
+/* --- DÉBUT DES MODIFICATIONS : CORRECTION DE L'EMPLACEMENT DES BOUTONS --- */
 .form-actions {
+    /* Utilisation de flexbox pour aligner les boutons horizontalement */
     display: flex;
+    /* Centre les boutons horizontalement */
     justify-content: center;
+    /* Ajoute un espace entre les boutons */
     gap: var(--spacing-md);
+    /* Ajoute une marge au-dessus pour les séparer des champs du formulaire */
     margin-top: var(--spacing-lg);
 }
+/* --- FIN DES MODIFICATIONS --- */
 
 .btn {
     padding: 0.8rem 2rem;
@@ -345,77 +642,6 @@ legend {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* --- 11. Footer (Pied de page) --- */
-footer {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: rgba(255, 255, 255, 0.7);
-    padding: var(--spacing-lg) 0;
-    font-size: var(--font-size-sm);
-    text-align: center;
-}
-
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-sm);
-}
-
-.footer-logo p {
-    font-size: var(--font-size-lg);
-    font-weight: 700;
-    color: var(--secondary-color);
-    margin-bottom: var(--spacing-sm);
-}
-
-.footer-links ul {
-    list-style: none;
-    margin-bottom: var(--spacing-md);
-}
-
-.footer-links ul li a {
-    color: rgba(255, 255, 255, 0.7);
-    padding: 0.2rem 0;
-    display: block;
-}
-
-.footer-links ul li a:hover {
-    color: var(--secondary-color);
-    text-decoration: underline;
-}
-
-.footer-social h4 {
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-light);
-}
-
-.footer-social a i {
-    font-size: 30px;
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0 var(--spacing-xs);
-    vertical-align: middle;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.footer-social a i:hover {
-    color: var(--secondary-color);
-    transform: scale(1.1);
-}
-
-.footer-social a .fa-discord:hover { color: #5865F2; }
-.footer-social a .fa-twitter:hover { color: #1DA1F2; }
-.footer-social a .fa-youtube:hover { color: #FF0000; }
-
-.copyright {
-    margin-top: var(--spacing-md);
-    padding-top: var(--spacing-sm);
-    border-top: 1px solid var(--border-color);
-}
-
-/* --- Styles pour les messages du formulaire --- */
 .form-message {
     margin: var(--spacing-lg) auto;
     padding: var(--spacing-md);
@@ -427,21 +653,21 @@ footer {
 }
 
 .form-message.success {
-    background-color: rgba(40, 167, 69, 0.8); /* Vert succès */
+    background-color: rgba(40, 167, 69, 0.8);
     color: var(--text-light);
 }
 
 .form-message.error {
-    background-color: rgba(220, 53, 69, 0.8); /* Rouge erreur */
+    background-color: rgba(220, 53, 69, 0.8);
     color: var(--text-light);
 }
 
 .form-message.info {
-    background-color: rgba(23, 162, 184, 0.8); /* Bleu info */
+    background-color: rgba(23, 162, 184, 0.8);
     color: var(--text-light);
 }
 
-/* --- 12. Responsive Design (Media Queries) --- */
+/* --- 14. Responsive Design (Media Queries) --- */
 @media (max-width: 768px) {
     .main-nav {
         flex-direction: column;
@@ -449,50 +675,40 @@ footer {
         height: auto;
         padding: var(--spacing-sm);
     }
-
     .main-nav ul {
         flex-direction: column;
         gap: var(--spacing-xs);
         margin-top: var(--spacing-md);
         width: 100%;
     }
-
     .main-nav ul li {
         width: 100%;
     }
     .main-nav ul li a {
         display: block;
     }
-
-    .form-intro-section .page-title {
-        font-size: 2.2rem;
+    .main-nav .logo {
+        margin-bottom: var(--spacing-md);
     }
-    .form-intro-section .welcome-message {
-        font-size: 1.5rem;
-    }
-
-    .form-container {
-        padding: var(--spacing-lg);
-    }
-
-    .form-group.flex-group {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-
-    .radio-options, .checkbox-options {
-        flex-direction: column;
+    .main-nav .logo a {
+        flex-direction: row;
+        align-items: center;
         gap: 0.5rem;
     }
-
-    .btn {
-        width: 100%;
+    .main-nav .logo .team-name-full {
+        margin-top: 0;
+        font-size: var(--font-size-base);
+        text-align: left;
+    }
+    .hero-content h1 {
+        font-size: var(--font-size-h2);
+    }
+    .hero-content p {
+        font-size: var(--font-size-base);
+    }
+    .button-primary, .button-secondary {
         margin-bottom: var(--spacing-sm);
     }
-    .form-actions {
-        flex-direction: column;
-    }
-
     .footer-content {
         flex-direction: column;
         align-items: center;
@@ -510,13 +726,108 @@ footer {
     .footer-links ul li a {
         display: inline-block;
     }
+    .social-links {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    .form-intro-section .page-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+    }
+    .form-intro-section .welcome-message {
+        font-size: clamp(1.25rem, 4vw, 2rem);
+    }
+    .form-container {
+        padding: var(--spacing-lg);
+    }
+    .form-group.flex-group {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    .radio-options, .checkbox-options {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    /* --- DÉBUT DES MODIFICATIONS : RESPONSIVE DESIGN DES BOUTONS --- */
+    .btn {
+        width: 100%; /* Les boutons prennent toute la largeur sur mobile */
+        margin-bottom: var(--spacing-sm);
+    }
+    .form-actions {
+        flex-direction: column; /* Les boutons s'empilent verticalement sur mobile */
+    }
+    /* --- FIN DES MODIFICATIONS --- */
+}
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: var(--font-size-xl);
+    }
+    .hero-content .button-primary,
+    .hero-content .button-secondary {
+        display: block;
+        margin: var(--spacing-xs) auto;
+        width: 90%;
+    }
+    .match-grid, .player-preview-grid, .news-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-@media (max-width: 480px) {
-    .form-container {
-        padding: var(--spacing-md);
-    }
-    .form-container .form-title {
-        font-size: 1.5rem;
-    }
+/* --- 15. Styles pour les animations JavaScript --- */
+.main-nav.scrolled {
+    padding: 0.5rem var(--spacing-sm);
+    background-color: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    height: var(--nav-height-scrolled);
+}
+.main-nav.scrolled .logo a {
+    font-size: var(--font-size-base);
+}
+.main-nav.scrolled .logo .team-name-full {
+    font-size: var(--font-size-sm);
+    margin-top: 0;
+}
+.main-nav.scrolled ul li a {
+    padding: 0.3rem 0.8rem;
+    font-size: var(--font-size-sm);
+}
+.main-nav.scrolled .cta-button {
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-sm);
+}
+#scroll-to-top {
+    display: none;
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color var(--transition-speed) ease, opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+    z-index: 1000;
+    opacity: 0;
+}
+#scroll-to-top:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+#scroll-to-top.show {
+    display: block;
+    opacity: 1;
+}
+.animated-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animated-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
