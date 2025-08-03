@@ -13,8 +13,8 @@
     --button-tertiary: rgba(255, 255, 255, 0.15); /* Couleur pour le nouveau bouton */
     --form-background: rgba(255, 255, 255, 0.05); /* Fond pour le formulaire */
     --input-border-color: rgba(255, 255, 255, 0.3);
-    --dropdown-bg: #2a3a57; /* Nouveau : couleur de fond pour les menus déroulants */
-    --dropdown-hover-bg: #3c5481; /* Nouveau : couleur de fond au survol des options */
+    --dropdown-bg: #2a3a57; /* Couleur de fond pour les menus déroulants */
+    --dropdown-hover-bg: #3c5481; /* Couleur de fond au survol des options */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
@@ -251,7 +251,7 @@ header {
 /* --- 10. Styles pour les sections principales de `main` --- */
 main section {
     padding: var(--spacing-xl) 0;
-    text-align: center;
+    text-align: left;
 }
 main section#about-us,
 main section#latest-matches,
@@ -476,6 +476,7 @@ footer {
     border: 1px solid var(--border-color);
     max-width: 900px;
     margin: 0 auto;
+    text-align: left;
 }
 
 .form-container .form-title {
@@ -511,6 +512,7 @@ legend {
     margin-bottom: 0.5rem;
     font-weight: 500;
     color: var(--text-light);
+    text-align: left;
 }
 
 .form-group input[type="text"],
@@ -599,37 +601,17 @@ legend {
     pointer-events: none;
 }
 
-/* Styles pour le menu déroulant (la liste d'options) */
-select {
-    background-color: var(--dropdown-bg);
-    color: var(--text-light);
-    border: 1px solid var(--input-border-color);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+/* Correction pour le menu déroulant */
+.form-group select {
+    background-color: var(--dropdown-bg) !important;
+    color: var(--text-light) !important;
+    border: 1px solid var(--input-border-color) !important;
 }
 
-select option {
-    background-color: var(--dropdown-bg);
-    color: var(--text-light);
-    padding: 0.75rem;
-}
-
-/* Style de survol pour les options du menu déroulant */
-select option:hover {
-    background-color: var(--dropdown-hover-bg);
-}
-
-/* Corrections pour les boutons en bas du formulaire */
-.form-actions {
-    display: flex;
-    justify-content: center; /* Centre les boutons horizontalement */
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
-}
-
-/* Centrage du bouton de connexion (Compte Utilisateur R+P) */
+/* Correction pour le centrage du lien de connexion */
 .login-link-container {
     display: flex;
-    justify-content: center; /* Centre l'élément */
+    justify-content: center;
     margin-top: var(--spacing-xl);
 }
 
@@ -645,7 +627,6 @@ select option:hover {
     color: var(--secondary-color);
     text-decoration: underline;
 }
-
 
 .btn {
     padding: 0.8rem 2rem;
