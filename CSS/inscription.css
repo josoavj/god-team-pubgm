@@ -13,7 +13,8 @@
     --button-tertiary: rgba(255, 255, 255, 0.15); /* Couleur pour le nouveau bouton */
     --form-background: rgba(255, 255, 255, 0.05); /* Fond pour le formulaire */
     --input-border-color: rgba(255, 255, 255, 0.3);
-
+    --dropdown-bg: #2a3a57; /* Nouveau : couleur de fond pour les menus déroulants */
+    --dropdown-hover-bg: #3c5481; /* Nouveau : couleur de fond au survol des options */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
@@ -598,18 +599,53 @@ legend {
     pointer-events: none;
 }
 
-/* --- DÉBUT DES MODIFICATIONS : CORRECTION DE L'EMPLACEMENT DES BOUTONS --- */
+/* Styles pour le menu déroulant (la liste d'options) */
+select {
+    background-color: var(--dropdown-bg);
+    color: var(--text-light);
+    border: 1px solid var(--input-border-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+select option {
+    background-color: var(--dropdown-bg);
+    color: var(--text-light);
+    padding: 0.75rem;
+}
+
+/* Style de survol pour les options du menu déroulant */
+select option:hover {
+    background-color: var(--dropdown-hover-bg);
+}
+
+/* Corrections pour les boutons en bas du formulaire */
 .form-actions {
-    /* Utilisation de flexbox pour aligner les boutons horizontalement */
     display: flex;
-    /* Centre les boutons horizontalement */
-    justify-content: center;
-    /* Ajoute un espace entre les boutons */
+    justify-content: center; /* Centre les boutons horizontalement */
     gap: var(--spacing-md);
-    /* Ajoute une marge au-dessus pour les séparer des champs du formulaire */
     margin-top: var(--spacing-lg);
 }
-/* --- FIN DES MODIFICATIONS --- */
+
+/* Centrage du bouton de connexion (Compte Utilisateur R+P) */
+.login-link-container {
+    display: flex;
+    justify-content: center; /* Centre l'élément */
+    margin-top: var(--spacing-xl);
+}
+
+.login-link {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
 
 .btn {
     padding: 0.8rem 2rem;
@@ -747,7 +783,6 @@ legend {
         flex-direction: column;
         gap: 0.5rem;
     }
-    /* --- DÉBUT DES MODIFICATIONS : RESPONSIVE DESIGN DES BOUTONS --- */
     .btn {
         width: 100%; /* Les boutons prennent toute la largeur sur mobile */
         margin-bottom: var(--spacing-sm);
@@ -755,7 +790,6 @@ legend {
     .form-actions {
         flex-direction: column; /* Les boutons s'empilent verticalement sur mobile */
     }
-    /* --- FIN DES MODIFICATIONS --- */
 }
 @media (max-width: 480px) {
     .hero-content h1 {
