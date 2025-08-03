@@ -1,25 +1,23 @@
-
 document.addEventListener('DOMContentLoaded', () => {
 
     /* --- 1. Défilement fluide (Smooth Scrolling) --- */
     document.querySelectorAll('a[href^="#"], a[href^="./#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            // Vérifie si le lien est un lien interne vers une section de la page actuelle
             const href = this.getAttribute('href');
-            const targetId = href.startsWith('./#') ? href.substring(3) : href.substring(1); // Gère ./# et #
+            const targetId = href.startsWith('./#') ? href.substring(3) : href.substring(1);
             const targetElement = document.getElementById(targetId);
 
             if (targetElement) {
-                e.preventDefault(); // Empêche le comportement par défaut (saut direct)
+                e.preventDefault();
 
-                // Calcule la position de défilement en tenant compte de la hauteur du header fixe
+                // Calcule la hauteur du header de manière dynamique pour s'adapter au responsive
                 const headerOffset = document.querySelector('header').offsetHeight;
                 const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementPosition - headerOffset - 20; // -20 pour un petit espace supplémentaire
+                const offsetPosition = elementPosition - headerOffset - 20; // Décalage pour laisser un peu d'espace
 
                 window.scrollTo({
                     top: offsetPosition,
-                    behavior: "smooth" // Active le défilement fluide
+                    behavior: "smooth"
                 });
             }
         });
@@ -27,26 +25,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* --- 2. Barre de navigation adaptative (Shrink/Change on Scroll) --- */
+    // La barre de navigation s'adapte en fonction du défilement de l'utilisateur
     const mainNav = document.querySelector('.main-nav');
     const header = document.querySelector('header');
-    const navHeight = header.offsetHeight; // Hauteur initiale du header
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > navHeight / 2) { // Si on a défilé de plus de la moitié de la hauteur de la nav
+        if (window.scrollY > 50) { // Déclenche le rétrécissement après 50px de défilement
             mainNav.classList.add('scrolled');
-            header.style.backgroundColor = 'rgba(0, 0, 0, 0.95)'; // Assure le fond sombre pour le header entier
+            header.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
         } else {
             mainNav.classList.remove('scrolled');
-            header.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'; // Revenir au fond initial
+            header.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
         }
     });
 
 
     /* --- 3. Bouton "Retour en haut" (Scroll-to-Top) --- */
+    // Le bouton apparaît et disparaît de manière fluide
     const scrollToTopButton = document.getElementById('scroll-to-top');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > window.innerHeight / 2) { // Apparaît après avoir défilé la moitié de la hauteur de la fenêtre
+        // Apparaît si le défilement est supérieur à la moitié de la hauteur de la fenêtre
+        if (window.scrollY > window.innerHeight / 2) {
             scrollToTopButton.classList.add('show');
         } else {
             scrollToTopButton.classList.remove('show');
@@ -62,19 +62,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* --- 4. Animations d'apparition au défilement (Fade-in on Scroll) --- */
-    const animatedSections = document.querySelectorAll('main section:not(.hero-section)'); // Cible toutes les sections sauf la hero
+    // Gère l'animation des sections lors du défilement pour un rendu plus dynamique
+    const animatedSections = document.querySelectorAll('main section:not(.hero-section)');
 
     const observerOptions = {
-        root: null, // La fenêtre d'affichage (viewport) est la racine
+        root: null,
         rootMargin: '0px',
-        threshold: 0.1 // 10% de la section doit être visible pour déclencher l'animation
+        threshold: 0.1
     };
 
     const sectionObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Arrête d'observer une fois l'animation déclenchée
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
