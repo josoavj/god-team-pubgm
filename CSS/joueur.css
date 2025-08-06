@@ -52,7 +52,7 @@
 }
 
 .player-card {
-    background-color: var(--card-background); /* Utilise la variable du home.css */
+    background-color: var(--card-background);
     padding: var(--spacing-md);
     border-radius: 10px;
     text-align: center;
