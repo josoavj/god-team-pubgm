@@ -765,11 +765,11 @@ legend {
         gap: 0.5rem;
     }
     .btn {
-        width: 100%; /* Les boutons prennent toute la largeur sur mobile */
+        width: 100%;
         margin-bottom: var(--spacing-sm);
     }
     .form-actions {
-        flex-direction: column; /* Les boutons s'empilent verticalement sur mobile */
+        flex-direction: column;
     }
 }
 @media (max-width: 480px) {
